@@ -12,6 +12,9 @@ import { useAppKitAccount } from "@reown/appkit/react";
 import { parseUnits, formatUnits } from "ethers";
 import { toast } from "sonner";
 
+// USDC decimals (changed from 6 to 18 as per your implementation)
+const USDC_DECIMALS = 18;
+
 // Sample pool key structure - this would come from your contract
 const samplePoolKey = {
   currency0: mock_usdc,
@@ -75,8 +78,8 @@ export function usePredictionMarket() {
       try {
         setIsLoading(true);
 
-        // Convert amount to the correct format (6 decimals for USDC)
-        const parsedAmount = parseUnits(amount, 6);
+        // Convert amount to the correct format (18 decimals for USDC)
+        const parsedAmount = parseUnits(amount, USDC_DECIMALS);
 
         console.log("Minting USDC:", {
           address: mock_usdc,
@@ -112,8 +115,8 @@ export function usePredictionMarket() {
       try {
         setIsLoading(true);
 
-        // First, approve USDC spending
-        const parsedAmount = parseUnits(amount, 6);
+        // Use 18 decimals for USDC
+        const parsedAmount = parseUnits(amount, USDC_DECIMALS);
 
         console.log("Approving USDC:", {
           address: mock_usdc,
@@ -162,8 +165,10 @@ export function usePredictionMarket() {
     }
   }, [isSuccess, refetchUsdcBalance, refetchYesPrice, refetchNoPrice]);
 
-  // Format values for display
-  const formattedUsdcBalance = usdcBalance ? formatUnits(usdcBalance, 6) : "0";
+  // Format values for display (using 18 decimals for USDC)
+  const formattedUsdcBalance = usdcBalance
+    ? formatUnits(usdcBalance, USDC_DECIMALS)
+    : "0";
   const formattedYesPrice = yesPrice ? formatUnits(yesPrice, 18) : "0.6";
   const formattedNoPrice = noPrice ? formatUnits(noPrice, 18) : "0.4";
 

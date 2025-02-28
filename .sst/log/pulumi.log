@@ -1,4 +1,5 @@
 Updating (thegnome):
+@ updating....
 
 @ updating.....
     pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running OutputImpl {
@@ -11,7 +12,7 @@ Updating (thegnome):
     pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running   toString: [Function (anonymous)],
     pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running   toJSON: [Function (anonymous)]
     pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running }
-@ updating........
+@ updating.......
     pulumi:pulumi:Stack sst-web3-boilerplate-thegnome  10 messages
 Diagnostics:
   pulumi:pulumi:Stack (sst-web3-boilerplate-thegnome):
@@ -32,5 +33,5 @@ Outputs:
 Resources:
     11 unchanged
 
-Duration: 7s
+Duration: 6s
 

@@ -1,4 +1,4 @@
-export const mock_usdc = "0x5136F547156eA4931D1bDad01407Af5A41d93004";
+export const mock_usdc = "0x8400926fbdaa04ed4164a4f2c6b2b992272d4c20";
 export const mock_abi = [
   {
     type: "constructor",

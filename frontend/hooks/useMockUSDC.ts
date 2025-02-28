@@ -43,7 +43,7 @@ export function useMockUSDC() {
         setError(null);
 
         // Convert amount to the correct format (6 decimals for USDC)
-        const parsedAmount = parseUnits(amount, 6);
+        const parsedAmount = parseUnits(amount, 18);
 
         // Call the mint function on the mock USDC contract
         writeContract({
