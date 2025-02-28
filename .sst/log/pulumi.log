@@ -1,0 +1,37 @@
+Updating (thegnome):
+@ updating.....
+
+@ updating......
+    pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running OutputImpl {
+    pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running   __pulumiOutput: true,
+    pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running   resources: [Function (anonymous)],
+    pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running   allResources: [Function (anonymous)],
+    pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running   isKnown: Promise { <pending> },
+    pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running   isSecret: Promise { <pending> },
+    pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running   promise: [Function (anonymous)],
+    pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running   toString: [Function (anonymous)],
+    pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running   toJSON: [Function (anonymous)]
+    pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running }
+@ updating.......
+    pulumi:pulumi:Stack sst-web3-boilerplate-thegnome  10 messages
+Diagnostics:
+  pulumi:pulumi:Stack (sst-web3-boilerplate-thegnome):
+    OutputImpl {
+      __pulumiOutput: true,
+      resources: [Function (anonymous)],
+      allResources: [Function (anonymous)],
+      isKnown: Promise { <pending> },
+      isSecret: Promise { <pending> },
+      promise: [Function (anonymous)],
+      toString: [Function (anonymous)],
+      toJSON: [Function (anonymous)]
+    }
+
+Outputs:
+    _protect: false
+
+Resources:
+    11 unchanged
+
+Duration: 8s
+
