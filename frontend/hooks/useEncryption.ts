@@ -2,136 +2,85 @@
 import { useState, useCallback } from "react";
 import { toast } from "sonner";
 import { useWriteContract } from "wagmi";
-import { hook_abi, hook_address } from "@/abi/hook_abi";
-import { useAppKitAccount } from "@reown/appkit/react";
-import { ethers } from "ethers";
+import { hook_address, hook_abi } from "@/abi/hook_abi";
 
-// This would typically come from a threshold-elgamal library
-// We're mocking these functions for now based on your SendEncrypt.js script
-const mockEncryptFunctions = {
-  // Mock encrypt function - in production this would use threshold-elgamal
-  encryptVote: (vote: "yes" | "no", publicKey: string) => {
-    // Generate mock encrypted values for demonstration
-    const c1 = ethers.randomBytes(32);
-    const c2 = ethers.randomBytes(32);
+// Mock encryption function (in a real app, you'd use actual encryption)
+function mockEncryptVote(
+  vote: "yes" | "no",
+  publicKeys: string[]
+): { c1: string; c2: string } {
+  // This is just a placeholder - in a real implementation, you would:
+  // 1. Combine the public keys
+  // 2. Use threshold encryption to encrypt the vote
+  // 3. Return the encrypted components
 
+  // For demo purposes, we're just creating different dummy values for yes/no
+  if (vote === "yes") {
     return {
-      c1: ethers.hexlify(c1),
-      c2: ethers.hexlify(c2),
+      c1: "0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+      c2: "0xfedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210",
     };
-  },
-
-  // Mock generate partial decryption share
-  generateDecryptionShare: (privateKey: string) => {
-    // In a real implementation, this would use the threshold-elgamal library
-    // to generate a proper decryption share
-    return ethers.hexlify(ethers.randomBytes(32));
-  },
-};
+  } else {
+    return {
+      c1: "0x1111111111111111111111111111111111111111111111111111111111111111",
+      c2: "0x2222222222222222222222222222222222222222222222222222222222222222",
+    };
+  }
+}
 
 export function useEncryption() {
-  const { address, isConnected } = useAppKitAccount();
-  const [isLoading, setIsLoading] = useState(false);
-  const { writeContract } = useWriteContract();
+  const { writeContract, isPending, isSuccess, error } = useWriteContract();
 
-  // Encrypt and send a vote
+  // Function to send an encrypted vote
   const sendEncryptedVote = useCallback(
-    async (vote: "yes" | "no", publicKeys: string[]) => {
-      if (!isConnected) {
-        toast.error("Please connect your wallet first");
-        return;
-      }
-
-      if (publicKeys.length === 0) {
-        toast.error("No public keys available for encryption");
-        return;
-      }
-
+    (vote: "yes" | "no", publicKeys: string[]) => {
       try {
-        setIsLoading(true);
-
-        // In production, you would use actual threshold encryption
-        // For now, we'll use a mock function
-        const encryptedVote = mockEncryptFunctions.encryptVote(
-          vote,
-          publicKeys[0]
-        );
-
-        console.log("Sending encrypted vote:", {
-          vote,
-          c1: encryptedVote.c1,
-          c2: encryptedVote.c2,
-        });
-
-        // Encode the encrypted vote as expected by the contract
-        const voteData = ethers.AbiCoder.defaultAbiCoder().encode(
-          ["bytes", "bytes"],
-          [encryptedVote.c1, encryptedVote.c2]
-        );
+        // In a real implementation, you would encrypt the vote
+        const { c1, c2 } = mockEncryptVote(vote, publicKeys);
 
         // Send the encrypted vote to the contract
         writeContract({
           address: hook_address,
           abi: hook_abi,
           functionName: "modifyVote",
-          args: [voteData],
+          args: [encodeEncryptedVote(c1, c2)],
         });
-
-        toast.success("Vote submitted");
       } catch (err) {
         console.error("Error sending encrypted vote:", err);
-        toast.error(err instanceof Error ? err.message : "Failed to send vote");
-      } finally {
-        setIsLoading(false);
+        toast.error("Failed to send encrypted vote");
       }
     },
-    [isConnected, writeContract]
+    [writeContract]
   );
 
-  // Generate and submit a partial decryption share
+  // Encode the encrypted vote for the contract
+  function encodeEncryptedVote(c1: string, c2: string): string {
+    // This would use ethers.utils.defaultAbiCoder.encode() in a real implementation
+    // For demo purposes, we're just returning a concatenated string
+    return c1 + c2.slice(2); // Remove the 0x prefix from the second value
+  }
+
+  // Function to submit a decryption share
   const submitDecryptionShare = useCallback(
-    async (privateKey: string) => {
-      if (!isConnected) {
-        toast.error("Please connect your wallet first");
-        return;
-      }
-
+    (decryptionShare: string) => {
       try {
-        setIsLoading(true);
-
-        // In production, you would use actual threshold decryption
-        // For now, we'll use a mock function
-        const decryptionShare =
-          mockEncryptFunctions.generateDecryptionShare(privateKey);
-
-        console.log("Submitting decryption share:", decryptionShare);
-
-        // Submit the decryption share to the contract
         writeContract({
           address: hook_address,
           abi: hook_abi,
           functionName: "submitPartialDecript",
           args: [decryptionShare],
         });
-
-        toast.success("Decryption share submitted");
       } catch (err) {
         console.error("Error submitting decryption share:", err);
-        toast.error(
-          err instanceof Error
-            ? err.message
-            : "Failed to submit decryption share"
-        );
-      } finally {
-        setIsLoading(false);
+        toast.error("Failed to submit decryption share");
       }
     },
-    [isConnected, writeContract]
+    [writeContract]
   );
 
   return {
     sendEncryptedVote,
     submitDecryptionShare,
-    isLoading,
+    isLoading: isPending,
   };
 }

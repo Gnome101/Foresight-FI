@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'; // Using existing shadcn components
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { toast } from 'sonner';
 import { useAppKitAccount } from '@reown/appkit/react';
 import { useMarketCreation } from '@/hooks/useMarketCreation';
@@ -35,12 +35,22 @@ export default function MarketSummaryPage() {
   const [publicKey, setPublicKey] = useState('');
   const [vote, setVote] = useState<'yes' | 'no'>('yes');
   const [customDecryptShare, setCustomDecryptShare] = useState('');
+  const [showDetails, setShowDetails] = useState(false);
 
   const isLoading = marketLoading || encryptionLoading;
 
-  // Refresh market data when component mounts
+  // Refresh market data when component mounts and periodically
   useEffect(() => {
+    // Initial fetch
     refetchMarket();
+    
+    // Refresh data every 10 seconds
+    const intervalId = setInterval(() => {
+      refetchMarket();
+    }, 10000);
+    
+    // Clean up interval on unmount
+    return () => clearInterval(intervalId);
   }, [refetchMarket]);
 
   const handleAddKey = () => {
@@ -55,14 +65,7 @@ export default function MarketSummaryPage() {
     }
     
     toast.promise(
-      new Promise((resolve, reject) => {
-        try {
-          submitKey(publicKey);
-          setTimeout(resolve, 1000);
-        } catch (error) {
-          reject(error);
-        }
-      }),
+      submitKey(publicKey),
       {
         loading: 'Adding key...',
         success: 'Key submission transaction sent!',
@@ -78,14 +81,7 @@ export default function MarketSummaryPage() {
     }
     
     toast.promise(
-      new Promise((resolve, reject) => {
-        try {
-          useCommonPublicKey();
-          setTimeout(resolve, 1000);
-        } catch (error) {
-          reject(error);
-        }
-      }),
+      useCommonPublicKey(),
       {
         loading: 'Adding common key...',
         success: 'Common key submission transaction sent!',
@@ -106,14 +102,7 @@ export default function MarketSummaryPage() {
     }
     
     toast.promise(
-      new Promise((resolve, reject) => {
-        try {
-          sendEncryptedVote(vote, currentMarket.publicKeys);
-          setTimeout(resolve, 1000);
-        } catch (error) {
-          reject(error);
-        }
-      }),
+      sendEncryptedVote(vote, currentMarket.publicKeys),
       {
         loading: 'Encrypting and sending vote...',
         success: 'Vote submitted!',
@@ -134,14 +123,7 @@ export default function MarketSummaryPage() {
     }
     
     toast.promise(
-      new Promise((resolve, reject) => {
-        try {
-          submitDecryptionShare(customDecryptShare);
-          setTimeout(resolve, 1000);
-        } catch (error) {
-          reject(error);
-        }
-      }),
+      submitDecryptionShare(customDecryptShare),
       {
         loading: 'Submitting custom decrypt share...',
         success: 'Decrypt share submission transaction sent!',
@@ -157,14 +139,7 @@ export default function MarketSummaryPage() {
     }
     
     toast.promise(
-      new Promise((resolve, reject) => {
-        try {
-          submitDecryptionShare(COMMON_PRIVATE_KEY);
-          setTimeout(resolve, 1000);
-        } catch (error) {
-          reject(error);
-        }
-      }),
+      submitDecryptionShare(COMMON_PRIVATE_KEY),
       {
         loading: 'Generating and submitting decrypt share...',
         success: 'Common decrypt share submitted!',
@@ -183,14 +158,7 @@ export default function MarketSummaryPage() {
     const isYesWinner = true;
     
     toast.promise(
-      new Promise((resolve, reject) => {
-        try {
-          chooseWinner(isYesWinner);
-          setTimeout(resolve, 1000);
-        } catch (error) {
-          reject(error);
-        }
-      }),
+      chooseWinner(isYesWinner),
       {
         loading: 'Finalizing market...',
         success: 'Market finalization transaction sent!',
@@ -211,6 +179,11 @@ export default function MarketSummaryPage() {
   // Check if market has expired
   const isMarketExpired = currentMarket && 
     Date.now() > currentMarket.expiration;
+
+  // Toggle showing technical details
+  const toggleDetails = () => {
+    setShowDetails(!showDetails);
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8">
@@ -256,15 +229,72 @@ export default function MarketSummaryPage() {
                   </p>
                 </div>
                 
-                <div>
-                  <Label className="font-semibold">Registered Keys:</Label>
-                  <p className="mt-1">{currentMarket.publicKeys?.length || 0}</p>
+                <div className="flex justify-between">
+                  <div>
+                    <Label className="font-semibold">Registered Keys:</Label>
+                    <p className="mt-1">{currentMarket.publicKeys?.length || 0}</p>
+                  </div>
+                  
+                  <div>
+                    <Label className="font-semibold">Decryption Shares:</Label>
+                    <p className="mt-1">{currentMarket.partialDecripts?.length || 0}</p>
+                  </div>
                 </div>
+
+                <Button 
+                  onClick={toggleDetails} 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full mt-2"
+                >
+                  {showDetails ? "Hide Technical Details" : "Show Technical Details"}
+                </Button>
                 
-                <div>
-                  <Label className="font-semibold">Decryption Shares:</Label>
-                  <p className="mt-1">{currentMarket.partialDecripts?.length || 0}</p>
-                </div>
+                {showDetails && (
+                  <div className="space-y-4 mt-4 p-4 bg-gray-50 rounded-md">
+                    <div>
+                      <Label className="font-semibold">Public Keys:</Label>
+                      <div className="mt-1 max-h-32 overflow-y-auto text-xs">
+                        {currentMarket.publicKeys && currentMarket.publicKeys.length > 0 ? (
+                          currentMarket.publicKeys.map((key, index) => (
+                            <div key={index} className="mb-2 p-2 bg-white rounded border">
+                              <span className="font-mono break-all">{key.substring(0, 32)}...</span>
+                            </div>
+                          ))
+                        ) : (
+                          <p>No public keys registered</p>
+                        )}
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <Label className="font-semibold">Decryption Shares:</Label>
+                      <div className="mt-1 max-h-32 overflow-y-auto text-xs">
+                        {currentMarket.partialDecripts && currentMarket.partialDecripts.length > 0 ? (
+                          currentMarket.partialDecripts.map((share, index) => (
+                            <div key={index} className="mb-2 p-2 bg-white rounded border">
+                              <span className="font-mono break-all">{share.substring(0, 32)}...</span>
+                            </div>
+                          ))
+                        ) : (
+                          <p>No decryption shares submitted</p>
+                        )}
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <Label className="font-semibold">Vote Ciphertexts:</Label>
+                      <div className="mt-1 p-2 bg-white rounded border text-xs">
+                        <p className="font-mono break-all">
+                          c1: {currentMarket.c1 ? `${currentMarket.c1.substring(0, 32)}...` : "None"}
+                        </p>
+                        <p className="font-mono break-all">
+                          c2: {currentMarket.c2 ? `${currentMarket.c2.substring(0, 32)}...` : "None"}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </CardContent>
             </Card>
             
@@ -390,20 +420,54 @@ export default function MarketSummaryPage() {
                     disabled={isLoading || !isConnected || !customDecryptShare}
                   >
                     Add Custom Decrypt Share
-                  </Button>
-                  
-                  <div className="pt-4">
+                  </Button><div className="pt-4">
                     <Button
                       onClick={handleDecryptVotes}
-                      disabled={isLoading || !isConnected || currentMarket.partialDecripts?.length === 0}
+                      disabled={isLoading || !isConnected || (currentMarket.partialDecripts?.length || 0) === 0}
                       className="w-full"
                     >
                       Finalize Market Results
                     </Button>
+                    
+                    {(currentMarket.partialDecripts?.length || 0) === 0 && (
+                      <p className="text-amber-600 text-sm mt-2">
+                        At least one decryption share is required to finalize the market.
+                      </p>
+                    )}
                   </div>
                 </CardContent>
               </Card>
             )}
+            
+            {/* Debug panel */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Debug Panel</CardTitle>
+                <CardDescription>
+                  Use this panel to force refresh market data and check the state
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <Button 
+                  onClick={() => refetchMarket()} 
+                  variant="outline" 
+                  className="w-full"
+                >
+                  Force Refresh Market Data
+                </Button>
+                
+                <div className="text-xs space-y-2 p-2 bg-gray-50 rounded">
+                  <p><strong>Current Timestamp:</strong> {Date.now()}</p>
+                  <p><strong>Registration End:</strong> {currentMarket.keyRegistrationExpiration}</p>
+                  <p><strong>Market End:</strong> {currentMarket.expiration}</p>
+                  <p><strong>Keys Count:</strong> {currentMarket.publicKeys?.length || 0}</p>
+                  <p><strong>Decrypts Count:</strong> {currentMarket.partialDecripts?.length || 0}</p>
+                  <p><strong>Registration Open:</strong> {isKeyRegistrationOpen ? "Yes" : "No"}</p>
+                  <p><strong>Market Expired:</strong> {isMarketExpired ? "Yes" : "No"}</p>
+                  <p><strong>Is Finalized:</strong> {currentMarket.isFinalized ? "Yes" : "No"}</p>
+                </div>
+              </CardContent>
+            </Card>
           </>
         )}
       </div>

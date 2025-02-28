@@ -1,7 +1,7 @@
 // frontend/app/create-market/page.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -12,11 +12,22 @@ import { useMarketCreation } from '@/hooks/useMarketCreation';
 
 export default function CreateMarketPage() {
   const { isConnected } = useAppKitAccount();
-  const { createMarket, currentMarket, isLoading, isSuccess } = useMarketCreation();
+  const { 
+    createMarket, 
+    currentMarket, 
+    isLoading, 
+    isSuccess, 
+    refetchMarket 
+  } = useMarketCreation();
   
   const [description, setDescription] = useState('');
   const [registrationDays, setRegistrationDays] = useState('3');
   const [marketDays, setMarketDays] = useState('30');
+
+  // Refresh market data when component mounts
+  useEffect(() => {
+    refetchMarket();
+  }, [refetchMarket]);
 
   // Check if there's already an active market
   const hasExistingMarket = currentMarket && !currentMarket.isFinalized && 
@@ -41,7 +52,13 @@ export default function CreateMarketPage() {
       new Promise((resolve, reject) => {
         try {
           createMarket(description, registrationDelay, marketLength);
-          setTimeout(resolve, 1000);
+          
+          // Set a timeout to allow the transaction to be processed
+          // and then refetch the market data
+          setTimeout(() => {
+            refetchMarket();
+            resolve("Market created successfully");
+          }, 5000);
         } catch (error) {
           reject(error);
         }
@@ -101,6 +118,14 @@ export default function CreateMarketPage() {
                   There is already an active market. Please wait for it to expire before creating a new one.
                 </p>
               </div>
+              
+              <Button
+                onClick={() => refetchMarket()}
+                variant="outline"
+                className="w-full"
+              >
+                Refresh Market Data
+              </Button>
             </CardContent>
           </Card>
         ) : (

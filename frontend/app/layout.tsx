@@ -5,7 +5,8 @@ import "./globals.css";
 import { headers } from "next/headers";
 import ContextProvider from "@/context";
 import { Navbar } from "@/components/navbar";
-import { Toaster } from "sonner"; // Use sonner directly
+import { Toaster } from "sonner";
+import { DebugPanel } from "@/components/debug-panel";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +37,8 @@ export default async function RootLayout({
           {/* Navbar appears on every page */}
           <Navbar />
           {children}
-          <Toaster position="top-right" /> {/* Add the Sonner Toaster component */}
+          <Toaster position="top-right" />
+          <DebugPanel />
         </ContextProvider>
       </body>
     </html>
