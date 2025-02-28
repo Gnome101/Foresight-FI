@@ -1,86 +1,150 @@
 // frontend/hooks/useEncryption.ts
-import { useState, useCallback } from "react";
-import { toast } from "sonner";
-import { useWriteContract } from "wagmi";
+import { useState } from "react";
+import { useContractWrite, useContractRead } from "wagmi";
 import { hook_address, hook_abi } from "@/abi/hook_abi";
+import { toast } from "sonner";
+import axios from "axios";
 
-// Mock encryption function (in a real app, you'd use actual encryption)
-function mockEncryptVote(
-  vote: "yes" | "no",
-  publicKeys: string[]
-): { c1: string; c2: string } {
-  // This is just a placeholder - in a real implementation, you would:
-  // 1. Combine the public keys
-  // 2. Use threshold encryption to encrypt the vote
-  // 3. Return the encrypted components
-
-  // For demo purposes, we're just creating different dummy values for yes/no
-  if (vote === "yes") {
-    return {
-      c1: "0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
-      c2: "0xfedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210",
-    };
-  } else {
-    return {
-      c1: "0x1111111111111111111111111111111111111111111111111111111111111111",
-      c2: "0x2222222222222222222222222222222222222222222222222222222222222222",
-    };
-  }
-}
+// Import the ElGamal functions from the threshold-elgamal library
+import {
+  generateParameters,
+  encrypt,
+  decrypt,
+  generateKeys,
+  combinePublicKeys,
+  createDecryptionShare,
+  combineDecryptionShares,
+  thresholdDecrypt,
+} from "threshold-elgamal";
 
 export function useEncryption() {
-  const { writeContract, isPending, isSuccess, error } = useWriteContract();
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Contract writes for submitting votes and decrypt shares
+  const { writeAsync: submitVoteWrite } = useContractWrite({
+    address: hook_address,
+    abi: hook_abi,
+    functionName: "modifyVote",
+  });
+
+  const { writeAsync: submitDecryptShareWrite } = useContractWrite({
+    address: hook_address,
+    abi: hook_abi,
+    functionName: "submitPartialDecript",
+  });
 
   // Function to send an encrypted vote
-  const sendEncryptedVote = useCallback(
-    (vote: "yes" | "no", publicKeys: string[]) => {
+  async function sendEncryptedVote(vote: "yes" | "no", publicKeys: string[]) {
+    setIsLoading(true);
+    try {
+      // Convert all public keys to BigInt
+      const publicKeysBigInt = publicKeys.map((key) => BigInt(key));
+
+      // Combine all public keys into a single public key
+      const combinedKey = combinePublicKeys(publicKeysBigInt);
+
+      // Determine vote value (1 for yes, 2 for no)
+      const voteValue = vote === "yes" ? 1 : 2;
+
+      // Encrypt the vote
+      const encryptedMessage = encrypt(voteValue, combinedKey);
+
+      // Convert the encrypted message components to strings
+      const c1Hex = encryptedMessage.c1.toString();
+      const c2Hex = encryptedMessage.c2.toString();
+
+      // Encode for the blockchain
+      const abiCoder = new window.ethers.AbiCoder();
+      const encodedData = abiCoder.encode(
+        ["bytes", "bytes"],
+        [`0x${c1Hex}`, `0x${c2Hex}`]
+      );
+
+      // Submit the encrypted vote to the contract
+      const tx = await submitVoteWrite({ args: [encodedData] });
+
+      // Send to the AVS validator for execution
       try {
-        // In a real implementation, you would encrypt the vote
-        const { c1, c2 } = mockEncryptVote(vote, publicKeys);
-
-        // Send the encrypted vote to the contract
-        writeContract({
-          address: hook_address,
-          abi: hook_abi,
-          functionName: "modifyVote",
-          args: [encodeEncryptedVote(c1, c2)],
+        const response = await axios.post("http://localhost:3001/execute", {
+          ciphertext: encodedData,
+          randomNumber: encryptedMessage.randomness?.toString() || "0",
+          taskDefinitionId: 1,
         });
-      } catch (err) {
-        console.error("Error sending encrypted vote:", err);
-        toast.error("Failed to send encrypted vote");
+        console.log("AVS response:", response.data);
+      } catch (error) {
+        console.error("Error submitting to AVS:", error);
+        // Even if AVS submission fails, the contract call may have succeeded
       }
-    },
-    [writeContract]
-  );
 
-  // Encode the encrypted vote for the contract
-  function encodeEncryptedVote(c1: string, c2: string): string {
-    // This would use ethers.utils.defaultAbiCoder.encode() in a real implementation
-    // For demo purposes, we're just returning a concatenated string
-    return c1 + c2.slice(2); // Remove the 0x prefix from the second value
+      return tx;
+    } catch (error) {
+      console.error("Error sending encrypted vote:", error);
+      toast.error(`Failed to encrypt vote: ${(error as Error).message}`);
+      throw error;
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   // Function to submit a decryption share
-  const submitDecryptionShare = useCallback(
-    (decryptionShare: string) => {
-      try {
-        writeContract({
-          address: hook_address,
-          abi: hook_abi,
-          functionName: "submitPartialDecript",
-          args: [decryptionShare],
-        });
-      } catch (err) {
-        console.error("Error submitting decryption share:", err);
-        toast.error("Failed to submit decryption share");
+  async function submitDecryptionShare(privateKeyOrShare: string) {
+    setIsLoading(true);
+    try {
+      // Handle both private keys and already computed decryption shares
+      let decryptionShare: string;
+
+      // If this looks like a decryption share (already computed), use as is
+      // Otherwise, compute a decryption share from the private key
+      if (privateKeyOrShare.length < 100) {
+        // Assume it's already a share
+        decryptionShare = privateKeyOrShare;
+      } else {
+        // Get the current encrypted vote from the contract
+        const marketData = await fetchMarketData();
+        if (!marketData || !marketData.c1 || !marketData.c1.length) {
+          throw new Error("No encrypted votes found on the contract");
+        }
+
+        // Convert encrypted message from contract format
+        const c1 = BigInt(marketData.c1);
+        const c2 = BigInt(marketData.c2);
+        const encryptedMessage = { c1, c2 };
+
+        // Convert private key to BigInt
+        const privateKey = BigInt(privateKeyOrShare);
+
+        // Create decryption share
+        const share = createDecryptionShare(encryptedMessage, privateKey);
+        decryptionShare = share.toString();
       }
-    },
-    [writeContract]
-  );
+
+      // Submit decryption share to the contract
+      const tx = await submitDecryptShareWrite({ args: [decryptionShare] });
+      return tx;
+    } catch (error) {
+      console.error("Error submitting decryption share:", error);
+      toast.error(
+        `Failed to submit decryption share: ${(error as Error).message}`
+      );
+      throw error;
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  // Helper function to fetch market data
+  async function fetchMarketData() {
+    const { data: marketData } = await useContractRead.fetch({
+      address: hook_address,
+      abi: hook_abi,
+      functionName: "getMarket",
+    });
+    return marketData;
+  }
 
   return {
     sendEncryptedVote,
     submitDecryptionShare,
-    isLoading: isPending,
+    isLoading,
   };
 }

@@ -1,173 +1,119 @@
 // frontend/hooks/useMarketCreation.ts
-import { useState, useEffect, useCallback } from "react";
-import { toast } from "sonner";
-import { useReadContract, useWriteContract } from "wagmi";
-import { parseEther } from "viem";
+import { useState } from "react";
+import { useContractWrite, useContractRead } from "wagmi";
 import { hook_address, hook_abi } from "@/abi/hook_abi";
+import { toast } from "sonner";
 
-// Define the Market type to match the contract structure
-type Market = {
-  description: string;
-  keyRegistrationExpiration: number;
-  expiration: number;
-  c1: string;
-  c2: string;
-  publicKeys: string[];
-  partialDecripts: string[];
-  isFinalized: boolean;
-  winner: boolean;
-};
+// Common test public key (corresponds to the COMMON_PRIVATE_KEY)
+const COMMON_PUBLIC_KEY =
+  "11957493999975269444464755610171302712985137680089913537371358803322489711030025529116263805543707198443121970636766676484013609572734723172897208835192129124130634220683608335934059747167798716303987741061276866722350649021701544866654073505300997339438076706903926084680273666247769585172889516660003871292977604307945575256562989339249618571820077388882124184551057081570158782308257997693753732629705161486226538884024512134465009061557175789020174254979326550204617276432073895111208583762714600808838676211892505793571953538566719419984299064603250594862261689781636324826532393217093148307757090045099607153113";
 
 export function useMarketCreation() {
-  const [currentMarket, setCurrentMarket] = useState<Market | null>(null);
-  const {
-    data: writeData,
-    writeContract,
-    isPending,
-    isSuccess,
-    error,
-  } = useWriteContract();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  // Fetch market data from the contract
-  const { data: marketData, refetch } = useReadContract({
+  // Contract read for market data
+  const { data: marketData, refetch } = useContractRead({
     address: hook_address,
     abi: hook_abi,
     functionName: "getMarket",
   });
 
-  // Fetch keys separately
-  const { data: keysData, refetch: refetchKeys } = useReadContract({
+  // Contract writes
+  const { writeAsync: createMarketWrite } = useContractWrite({
     address: hook_address,
     abi: hook_abi,
-    functionName: "getKeys",
+    functionName: "MakeMarket",
   });
 
-  // Fetch decryption shares separately
-  const { data: sharesData, refetch: refetchShares } = useReadContract({
+  const { writeAsync: submitKeyWrite } = useContractWrite({
     address: hook_address,
     abi: hook_abi,
-    functionName: "getDecryptionShares",
+    functionName: "submitKey",
   });
 
-  // Convert timestamps from seconds to milliseconds for JavaScript Date
-  const processMarketData = useCallback(() => {
-    if (marketData) {
-      const processedMarket = {
-        ...marketData,
-        // Convert timestamps from seconds to milliseconds
-        keyRegistrationExpiration:
-          Number(marketData.keyRegistrationExpiration) * 1000,
-        expiration: Number(marketData.expiration) * 1000,
-        // Ensure arrays are properly initialized
-        publicKeys: Array.isArray(marketData.publicKeys)
-          ? marketData.publicKeys
-          : [],
-        partialDecripts: Array.isArray(marketData.partialDecripts)
-          ? marketData.partialDecripts
-          : [],
-      };
+  const { writeAsync: chooseWinnerWrite } = useContractWrite({
+    address: hook_address,
+    abi: hook_abi,
+    functionName: "chooseWinner",
+  });
 
-      // If we have separate key data, override the publicKeys from marketData
-      if (keysData && Array.isArray(keysData)) {
-        processedMarket.publicKeys = keysData;
-      }
-
-      // If we have separate shares data, override the partialDecripts from marketData
-      if (sharesData && Array.isArray(sharesData)) {
-        processedMarket.partialDecripts = sharesData;
-      }
-
-      setCurrentMarket(processedMarket);
-    }
-  }, [marketData, keysData, sharesData]);
-
-  // Process market data whenever it changes
-  useEffect(() => {
-    processMarketData();
-  }, [processMarketData]);
-
-  // Function to create a new market
-  const createMarket = useCallback(
-    (description: string, registrationDelay: number, marketLength: number) => {
-      try {
-        writeContract({
-          address: hook_address,
-          abi: hook_abi,
-          functionName: "MakeMarket",
-          args: [description, BigInt(registrationDelay), BigInt(marketLength)],
-        });
-      } catch (err) {
-        console.error("Error creating market:", err);
-        toast.error("Failed to create market");
-      }
-    },
-    [writeContract]
-  );
-
-  // Function to submit a public key
-  const submitKey = useCallback(
-    (publicKey: string) => {
-      try {
-        writeContract({
-          address: hook_address,
-          abi: hook_abi,
-          functionName: "submitKey",
-          args: [publicKey],
-        });
-      } catch (err) {
-        console.error("Error submitting key:", err);
-        toast.error("Failed to submit key");
-      }
-    },
-    [writeContract]
-  );
-
-  // Common public key for testing
-  const commonPublicKey =
-    "17198111189740987207522258066070924659068354664866153349209472785674371270060091762895376871405096450964189332505989014717404517835761512453664757667426820217481440982146617209935641204979498323812441179740390809704275764217718676871508299641960392693502986024702569368107809778413850853826168369425962712173790018017361397615845706791905366069526727215230586745271719003886933530843871633556938220645881606394868643579850622075915590012962791258951480013534977101779599471939324439360030244729834387834027239088977696746477158659363343219175191100820364097049332480659184824130271435766049092620682590274475536856966";
-
-  // Function to use the common public key for testing
-  const useCommonPublicKey = useCallback(() => {
-    submitKey(commonPublicKey);
-  }, [submitKey]);
-
-  // Function to choose a winner
-  const chooseWinner = useCallback(
-    (isYesWinner: boolean) => {
-      try {
-        writeContract({
-          address: hook_address,
-          abi: hook_abi,
-          functionName: "chooseWinner",
-          args: [isYesWinner],
-        });
-      } catch (err) {
-        console.error("Error choosing winner:", err);
-        toast.error("Failed to choose winner");
-      }
-    },
-    [writeContract]
-  );
-
-  // Refetch all market data
-  const refetchMarket = useCallback(async () => {
+  // Create a new market
+  async function createMarket(
+    description: string,
+    registrationDelay: number,
+    marketLength: number
+  ) {
+    setIsLoading(true);
     try {
-      await Promise.all([refetch(), refetchKeys(), refetchShares()]);
-      processMarketData();
-    } catch (err) {
-      console.error("Error fetching market data:", err);
+      const tx = await createMarketWrite({
+        args: [description, BigInt(registrationDelay), BigInt(marketLength)],
+      });
+      setIsSuccess(true);
+      return tx;
+    } catch (error) {
+      console.error("Error creating market:", error);
+      toast.error(`Failed to create market: ${(error as Error).message}`);
+      throw error;
+    } finally {
+      setIsLoading(false);
     }
-  }, [refetch, refetchKeys, refetchShares, processMarketData]);
+  }
+
+  // Submit a public key
+  async function submitKey(publicKey: string) {
+    setIsLoading(true);
+    try {
+      const tx = await submitKeyWrite({ args: [publicKey] });
+      await refetch();
+      return tx;
+    } catch (error) {
+      console.error("Error submitting key:", error);
+      toast.error(`Failed to submit key: ${(error as Error).message}`);
+      throw error;
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  // Use a common public key for testing
+  async function useCommonPublicKey() {
+    return submitKey(COMMON_PUBLIC_KEY);
+  }
+
+  // Choose the winner of the market
+  async function chooseWinner(isYesWinner: boolean) {
+    setIsLoading(true);
+    try {
+      const tx = await chooseWinnerWrite({ args: [isYesWinner] });
+      await refetch();
+      return tx;
+    } catch (error) {
+      console.error("Error choosing winner:", error);
+      toast.error(`Failed to choose winner: ${(error as Error).message}`);
+      throw error;
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  // Utility function to refetch market data
+  const refetchMarket = async () => {
+    try {
+      await refetch();
+    } catch (error) {
+      console.error("Error refetching market data:", error);
+    }
+  };
 
   return {
-    currentMarket,
+    currentMarket: marketData,
     createMarket,
     submitKey,
     useCommonPublicKey,
     chooseWinner,
     refetchMarket,
-    isLoading: isPending,
+    isLoading,
     isSuccess,
-    error,
   };
 }
