@@ -12,7 +12,8 @@ import { cookieStorage, createStorage, http } from '@wagmi/core';
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi';
 import { mainnet, arbitrum, baseSepolia } from '@reown/appkit/networks';
 
-export const networks = [mainnet, arbitrum,baseSepolia];
+// Make sure baseSepolia is in the networks array
+export const networks = [mainnet, arbitrum, baseSepolia];
 
 export const wagmiAdapter = new WagmiAdapter({
   storage: createStorage({

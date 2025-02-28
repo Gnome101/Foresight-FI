@@ -3,13 +3,15 @@
 import { useAppKit, useAppKitAccount, useDisconnect } from '@reown/appkit/react'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
-import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export function Navbar() {
   const { open } = useAppKit()
   const { address, isConnected } = useAppKitAccount()
   const { disconnect } = useDisconnect()
   const [showDisconnectModal, setShowDisconnectModal] = useState(false)
+  const pathname = usePathname()
 
   // Format address for display (e.g., 0x1234...5678)
   const formatAddress = (address: string) => {
@@ -45,9 +47,38 @@ export function Navbar() {
 
   return (
     <nav className="flex justify-between items-center p-4 border-b">
-      <div className="flex items-center">
+      <div className="flex items-center space-x-6">
         <h1 className="text-xl font-bold">Web3 Boilerplate</h1>
+        
+        {/* Navigation Links */}
+        <div className="flex space-x-4">
+          <Link 
+            href="/create-market" 
+            className={`transition-colors hover:text-primary ${
+              pathname === '/create-market' ? 'text-primary font-medium' : 'text-muted-foreground'
+            }`}
+          >
+            Create Market
+          </Link>
+          <Link 
+            href="/market-summary" 
+            className={`transition-colors hover:text-primary ${
+              pathname === '/market-summary' ? 'text-primary font-medium' : 'text-muted-foreground'
+            }`}
+          >
+            Market Summary
+          </Link>
+          <Link 
+            href="/prediction-market" 
+            className={`transition-colors hover:text-primary ${
+              pathname === '/prediction-market' ? 'text-primary font-medium' : 'text-muted-foreground'
+            }`}
+          >
+            Prediction Market
+          </Link>
+        </div>
       </div>
+      
       <div>
         {isConnected ? (
           <div className="relative">

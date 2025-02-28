@@ -1,16 +1,11 @@
-/* =========================================================
-   layout.tsx
-   Place this at app/layout.tsx (or wherever your root layout is).
-   This version includes the Navbar so that it appears on every page.
-   Adjust imports and paths as needed for your project.
-========================================================= */
-
+// frontend/app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { headers } from "next/headers";
 import ContextProvider from "@/context";
-import { Navbar } from "@/components/navbar"; // Adjust path if needed
+import { Navbar } from "@/components/navbar";
+import { Toaster } from "sonner"; // Use sonner directly
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +36,7 @@ export default async function RootLayout({
           {/* Navbar appears on every page */}
           <Navbar />
           {children}
+          <Toaster position="top-right" /> {/* Add the Sonner Toaster component */}
         </ContextProvider>
       </body>
     </html>
