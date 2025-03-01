@@ -1,6 +1,7 @@
+// frontend/app/prediction-market/page.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -8,25 +9,36 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from "sonner";
 import { useAppKitAccount } from '@reown/appkit/react';
 import { usePredictionMarket } from '@/hooks/usePredictionMarket';
+import { useMarketCreation } from '@/hooks/useMarketCreation';
 import { Sparkles } from 'lucide-react';
 import SplineEyeball from '@/components/spline-eyeball';
-
 
 export default function PredictionMarketPage() {
   const { address, isConnected } = useAppKitAccount();
   const { 
     usdcBalance, 
+    noTokenBalance,
+    yesTokenBalance,
     yesPrice, 
     noPrice, 
     mintUSDC, 
     depositAndMint, 
+    refreshBalances,
     isLoading
   } = usePredictionMarket();
   
+  const { currentMarket, refetchMarket } = useMarketCreation();
+  
   const [mintAmount, setMintAmount] = useState('100');
   const [depositAmount, setDepositAmount] = useState('10');
-  const [balanceNo, setBalanceNo] = useState(10); 
-  const [balanceYes, setBalanceYes] = useState(5);
+
+  // Fetch initial data when component mounts
+  useEffect(() => {
+    refetchMarket();
+    if (isConnected && address) {
+      refreshBalances();
+    }
+  }, [isConnected, address, refreshBalances, refetchMarket]);
 
   const handleMintUSDC = () => {
     if (!isConnected) {
@@ -35,14 +47,7 @@ export default function PredictionMarketPage() {
     }
     
     toast.promise(
-      new Promise((resolve, reject) => {
-        try {
-          mintUSDC(mintAmount);
-          setTimeout(resolve, 1000);
-        } catch (error) {
-          reject(error);
-        }
-      }),
+      mintUSDC(mintAmount),
       {
         loading: 'Conjuring USDC...',
         success: 'USDC appeared in your wallet!',
@@ -51,21 +56,14 @@ export default function PredictionMarketPage() {
     );
   };
 
-  const handleRedeemTokens = () => {
+  const handleDepositAndMint = () => {
     if (!isConnected) {
       toast.error("Please connect your wallet first");
       return;
     }
     
     toast.promise(
-      new Promise((resolve, reject) => {
-        try {
-          depositAndMint(depositAmount);
-          setTimeout(resolve, 1000);
-        } catch (error) {
-          reject(error);
-        }
-      }),
+      depositAndMint(depositAmount),
       {
         loading: 'Transmuting tokens...',
         success: 'The prophecy tokens have been created!',
@@ -93,25 +91,29 @@ export default function PredictionMarketPage() {
   };
 
   // Calculate display prices (convert from wei to display format)
-  const displayNoPrice = parseFloat(noPrice).toFixed(2);
-  const displayYesPrice = parseFloat(yesPrice).toFixed(2);
+  const displayNoPrice = parseFloat(noPrice || '0').toFixed(2);
+  const displayYesPrice = parseFloat(yesPrice || '0').toFixed(2);
 
-  // Display formatted USDC balance
-  const displayUsdcBalance = parseFloat(usdcBalance).toFixed(2);
+  // Display formatted token balances
+  const displayUsdcBalance = parseFloat(usdcBalance || '0').toFixed(2);
+  const displayNoBalance = parseFloat(noTokenBalance || '0').toFixed(2);
+  const displayYesBalance = parseFloat(yesTokenBalance || '0').toFixed(2);
 
- return (
+  // Get market title from the contract data
+  const marketTitle = currentMarket?.description || "Loading market question...";
+
+  return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">
       <div className="max-w-4xl w-full space-y-6 relative">
         {/* Mystical decorative elements */}
              
- <SplineEyeball />
+        <SplineEyeball />
         <div className="absolute -top-10 -left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl z-0"></div>
         <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl z-0"></div>
           
-        {/* Eyeball above the heading */}
-        
+        {/* Market title from contract */}
         <h1 className="text-3xl font-bold text-center text-primary relative z-10">
-          Who will win the election?
+          {marketTitle}
         </h1>
 
         {/* Network information banner */}
@@ -185,12 +187,12 @@ export default function PredictionMarketPage() {
                     
                     <div className="flex justify-between">
                       <span>NO Tokens:</span>
-                      <span className="font-semibold text-red-400">{balanceNo}</span>
+                      <span className="font-semibold text-red-400">{displayNoBalance}</span>
                     </div>
                     
                     <div className="flex justify-between">
                       <span>YES Tokens:</span>
-                      <span className="font-semibold text-green-400">{balanceYes}</span>
+                      <span className="font-semibold text-green-400">{displayYesBalance}</span>
                     </div>
                   </div>
                   
@@ -219,14 +221,14 @@ export default function PredictionMarketPage() {
                     <Input 
                       id="depositAmount"
                       type="number" 
-                      value={depositAmount} 
+                      value={depositAmount}
                       onChange={(e) => setDepositAmount(e.target.value)}
                       className="w-full bg-secondary/20 border-border/50"
                     />
                   </div>
                   
                   <Button 
-                    onClick={handleRedeemTokens} 
+                    onClick={handleDepositAndMint} 
                     className="w-full mt-4 bg-accent hover:bg-accent/90"
                     disabled={isLoading}
                   >

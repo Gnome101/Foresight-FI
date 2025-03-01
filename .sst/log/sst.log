@@ -1368,3 +1368,91 @@ time=2025-03-01T06:04:17.174-07:00 level=INFO msg="waiting for trigger" service=
 time=2025-03-01T06:04:17.174-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts op=WRITE
 time=2025-03-01T06:04:17.174-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts
 time=2025-03-01T06:05:10.278-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:06:10.279-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:07:10.280-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:07:11.048-07:00 level=INFO msg=resize
+time=2025-03-01T06:08:10.278-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:09:10.279-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:10:10.281-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:10:23.735-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
+time=2025-03-01T06:10:23.735-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:10:23.735-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
+time=2025-03-01T06:10:23.736-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts
+time=2025-03-01T06:10:28.121-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
+time=2025-03-01T06:10:28.121-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:10:28.121-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts
+time=2025-03-01T06:10:28.121-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
+time=2025-03-01T06:10:39.661-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
+time=2025-03-01T06:10:39.661-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:10:39.661-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts
+time=2025-03-01T06:10:39.661-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
+time=2025-03-01T06:11:10.280-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:11:26.605-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
+time=2025-03-01T06:11:26.605-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
+time=2025-03-01T06:11:26.605-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:11:26.605-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts
+time=2025-03-01T06:11:37.322-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
+time=2025-03-01T06:11:37.322-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts
+time=2025-03-01T06:11:37.322-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:11:37.322-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
+time=2025-03-01T06:12:10.280-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:13:10.279-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:14:10.279-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:15:10.280-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:16:10.280-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:17:10.280-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:18:10.280-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:19:10.281-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:20:10.280-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:21:10.280-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:22:10.280-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:23:10.282-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:23:44.441-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
+time=2025-03-01T06:23:44.441-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:23:44.441-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts
+time=2025-03-01T06:23:44.441-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
+time=2025-03-01T06:24:03.456-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
+time=2025-03-01T06:24:03.456-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:24:03.456-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts
+time=2025-03-01T06:24:03.456-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
+time=2025-03-01T06:24:10.281-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:24:27.282-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T06:24:27.282-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:24:27.282-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T06:24:27.282-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T06:25:10.280-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:26:10.282-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:27:10.281-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:28:10.281-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:29:10.281-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:30:10.282-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:31:10.282-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:32:10.282-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:33:10.282-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:34:10.281-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:35:10.284-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:36:10.283-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:37:10.283-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:38:10.283-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:38:36.138-07:00 level=INFO msg="matching dev" service=dev full=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend directory=""
+time=2025-03-01T06:38:36.139-07:00 level=INFO msg="loading aws credentials" service=project.env resource=Frontend role=arn:aws:iam::767397930251:role/sst-web3-boilerplate-thegnome-FrontendDevServerRole-wsdouaho
+time=2025-03-01T06:38:36.412-07:00 level=ERROR msg="failed to load aws credentials" service=project.env resource=Frontend err=<nil>
+time=2025-03-01T06:38:36.412-07:00 level=INFO msg=dev service=project.env resource=Frontend links=[REOWN_PROJECT_ID]
+time=2025-03-01T06:39:08.566-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T06:39:08.566-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T06:39:08.566-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:39:08.566-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts
+time=2025-03-01T06:39:10.283-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:39:16.795-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts op=WRITE
+time=2025-03-01T06:39:16.796-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:39:16.796-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts
+time=2025-03-01T06:39:16.796-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts op=WRITE
+time=2025-03-01T06:39:26.068-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts op=WRITE
+time=2025-03-01T06:39:26.069-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:39:26.069-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts
+time=2025-03-01T06:39:26.069-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts op=WRITE
+time=2025-03-01T06:39:31.436-07:00 level=INFO msg="ignoring file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/abi op=RENAME
+time=2025-03-01T06:39:33.007-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/abi op=CREATE
+time=2025-03-01T06:39:33.008-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:39:33.008-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/abi
+time=2025-03-01T06:40:10.283-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"

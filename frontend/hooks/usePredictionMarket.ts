@@ -1,38 +1,27 @@
 // frontend/hooks/usePredictionMarket.ts
-import { useCallback, useState, useEffect } from "react";
-import {
-  useReadContract,
-  useWriteContract,
-  useWaitForTransactionReceipt,
-} from "wagmi";
-import { mock_abi, mock_usdc } from "@/abi/mock_erc";
-import { mint_abi, mint_address } from "@/abi/dynamic_mint";
-import { hook_abi, hook_address } from "@/abi/hook_abi";
-import { useAppKitAccount } from "@reown/appkit/react";
-import { parseUnits, formatUnits } from "ethers";
-import { toast } from "sonner";
+"use client";
 
-// Sample pool key structure - this would come from your contract
-const samplePoolKey = {
-  currency0: mock_usdc,
-  currency1: "0x0000000000000000000000000000000000000000", // Replace with actual currency1
-  fee: 500,
-  tickSpacing: 10,
-  hooks: hook_address,
-};
+import { useState, useCallback, useEffect } from "react";
+import { useReadContract, useWriteContract, useAccount } from "wagmi";
+import { parseEther } from "viem";
+import {
+  dynamicPoolBasedMinterAddress,
+  dynamicPoolBasedMinterAbi,
+} from "@/src/generated";
+import { mock_usdc, mock_abi } from "@/abi/mock_erc";
 
 export function usePredictionMarket() {
-  const { address, isConnected } = useAppKitAccount();
   const [isLoading, setIsLoading] = useState(false);
+  const [usdcBalance, setUsdcBalance] = useState("0");
+  const [noTokenBalance, setNoTokenBalance] = useState("0");
+  const [yesTokenBalance, setYesTokenBalance] = useState("0");
+  const [yesPrice, setYesPrice] = useState("0");
+  const [noPrice, setNoPrice] = useState("0");
+  const { address } = useAccount();
+  const { writeContract } = useWriteContract();
 
-  // Set up contract write functionality
-  const { writeContract, data: txHash } = useWriteContract();
-  const { isLoading: isTxLoading, isSuccess } = useWaitForTransactionReceipt({
-    hash: txHash,
-  });
-
-  // Read USDC balance
-  const { data: usdcBalance, refetch: refetchUsdcBalance } = useReadContract({
+  // Get USDC balance
+  const { data: balance, refetch: refetchBalance } = useReadContract({
     address: mock_usdc,
     abi: mock_abi,
     functionName: "balanceOf",
@@ -42,143 +31,190 @@ export function usePredictionMarket() {
     },
   });
 
-  // Read YES token price
-  const { data: yesPrice, refetch: refetchYesPrice } = useReadContract({
-    address: mint_address,
-    abi: mint_abi,
+  // Get price info from the prediction market contract
+  const { data: yesPriceData, refetch: refetchYesPrice } = useReadContract({
+    address: dynamicPoolBasedMinterAddress,
+    abi: dynamicPoolBasedMinterAbi,
     functionName: "getYESPrice",
-    args: [samplePoolKey],
-    query: {
-      enabled: !!address,
-    },
   });
 
-  // Read NO token price
-  const { data: noPrice, refetch: refetchNoPrice } = useReadContract({
-    address: mint_address,
-    abi: mint_abi,
+  const { data: noPriceData, refetch: refetchNoPrice } = useReadContract({
+    address: dynamicPoolBasedMinterAddress,
+    abi: dynamicPoolBasedMinterAbi,
     functionName: "getNOPrice",
-    args: [samplePoolKey],
-    query: {
-      enabled: !!address,
-    },
   });
+
+  // Get tokenX (NO) address
+  const { data: tokenXAddress } = useReadContract({
+    address: dynamicPoolBasedMinterAddress,
+    abi: dynamicPoolBasedMinterAbi,
+    functionName: "tokenX",
+  });
+
+  // Get tokenY (YES) address
+  const { data: tokenYAddress } = useReadContract({
+    address: dynamicPoolBasedMinterAddress,
+    abi: dynamicPoolBasedMinterAbi,
+    functionName: "tokenY",
+  });
+
+  // Get NO token balance if address is available
+  const { data: noTokenBalanceData, refetch: refetchNoTokenBalance } =
+    useReadContract({
+      address: tokenXAddress as `0x${string}`,
+      abi: mock_abi,
+      functionName: "balanceOf",
+      args: [(address as `0x${string}`) || "0x0"],
+      query: {
+        enabled: !!address && !!tokenXAddress,
+      },
+    });
+
+  // Get YES token balance if address is available
+  const { data: yesTokenBalanceData, refetch: refetchYesTokenBalance } =
+    useReadContract({
+      address: tokenYAddress as `0x${string}`,
+      abi: mock_abi,
+      functionName: "balanceOf",
+      args: [(address as `0x${string}`) || "0x0"],
+      query: {
+        enabled: !!address && !!tokenYAddress,
+      },
+    });
+
+  // Update state when data changes
+  useEffect(() => {
+    if (balance) {
+      setUsdcBalance((Number(balance) / 1e18).toString());
+    }
+    if (noTokenBalanceData) {
+      setNoTokenBalance((Number(noTokenBalanceData) / 1e18).toString());
+    }
+    if (yesTokenBalanceData) {
+      setYesTokenBalance((Number(yesTokenBalanceData) / 1e18).toString());
+    }
+    if (yesPriceData) {
+      setYesPrice((Number(yesPriceData) / 1e18).toString());
+    }
+    if (noPriceData) {
+      setNoPrice((Number(noPriceData) / 1e18).toString());
+    }
+  }, [
+    balance,
+    noTokenBalanceData,
+    yesTokenBalanceData,
+    yesPriceData,
+    noPriceData,
+  ]);
 
   // Mint USDC tokens
   const mintUSDC = useCallback(
     async (amount: string) => {
-      if (!address) {
-        toast.error("Please connect your wallet first");
-        return;
-      }
+      if (!address) throw new Error("Wallet not connected");
 
       try {
         setIsLoading(true);
-
-        // Convert amount to the correct format (6 decimals for USDC)
-        const parsedAmount = parseUnits(amount, 6);
-
-        console.log("Minting USDC:", {
-          address: mock_usdc,
-          amount: parsedAmount.toString(),
-          recipient: address,
-        });
-
-        // Call the mint function on the mock USDC contract
-        writeContract({
+        const hash = await writeContract({
           address: mock_usdc,
           abi: mock_abi,
           functionName: "mint",
-          args: [address as `0x${string}`, parsedAmount],
+          args: [address, parseEther(amount)],
         });
-      } catch (err) {
-        console.error("Error minting USDC:", err);
-        toast.error(err instanceof Error ? err.message : "Failed to mint USDC");
+
+        // After transaction, refetch balance
+        setTimeout(() => refetchBalance(), 2000);
+        return hash;
+      } catch (error) {
+        console.error("Error minting USDC:", error);
+        throw error;
       } finally {
         setIsLoading(false);
       }
     },
-    [address, writeContract]
+    [address, writeContract, refetchBalance]
   );
 
-  // Deposit USDC and mint YES/NO tokens
+  // Deposit USDC and mint prediction tokens
   const depositAndMint = useCallback(
     async (amount: string) => {
-      if (!address) {
-        toast.error("Please connect your wallet first");
-        return;
-      }
+      if (!address) throw new Error("Wallet not connected");
 
       try {
         setIsLoading(true);
 
-        // First, approve USDC spending
-        const parsedAmount = parseUnits(amount, 6);
-
-        console.log("Approving USDC:", {
-          address: mock_usdc,
-          spender: mint_address,
-          amount: parsedAmount.toString(),
-        });
-
-        writeContract({
+        // First approve the DynamicPoolBasedMinter contract to spend USDC
+        const approveHash = await writeContract({
           address: mock_usdc,
           abi: mock_abi,
           functionName: "approve",
-          args: [mint_address as `0x${string}`, parsedAmount],
+          args: [dynamicPoolBasedMinterAddress, parseEther(amount)],
         });
 
-        // Note: In a real implementation, we would wait for this transaction to complete
-        // before calling depositAndMint. For simplicity, we're skipping that here.
+        // Wait a bit for the approval to be processed
+        await new Promise((resolve) => setTimeout(resolve, 2000));
 
-        // Call depositAndMint on the minter contract
-        writeContract({
-          address: mint_address,
-          abi: mint_abi,
+        // Then deposit and mint tokens
+        const mintHash = await writeContract({
+          address: dynamicPoolBasedMinterAddress,
+          abi: dynamicPoolBasedMinterAbi,
           functionName: "depositAndMint",
-          args: [parsedAmount, samplePoolKey],
+          args: [parseEther(amount)],
         });
-      } catch (err) {
-        console.error("Error depositing and minting:", err);
-        toast.error(
-          err instanceof Error
-            ? err.message
-            : "Failed to deposit and mint tokens"
-        );
+
+        // Refresh balances after a delay
+        setTimeout(() => {
+          refetchBalance();
+          refetchNoTokenBalance();
+          refetchYesTokenBalance();
+          refetchYesPrice();
+          refetchNoPrice();
+        }, 2000);
+
+        return mintHash;
+      } catch (error) {
+        console.error("Error depositing and minting:", error);
+        throw error;
       } finally {
         setIsLoading(false);
       }
     },
-    [address, writeContract]
+    [
+      address,
+      writeContract,
+      refetchBalance,
+      refetchNoTokenBalance,
+      refetchYesTokenBalance,
+      refetchYesPrice,
+      refetchNoPrice,
+    ]
   );
 
-  // Refetch data when transaction succeeds
-  useEffect(() => {
-    if (isSuccess) {
-      refetchUsdcBalance();
-      refetchYesPrice();
-      refetchNoPrice();
-      toast.success("Transaction completed successfully");
-    }
-  }, [isSuccess, refetchUsdcBalance, refetchYesPrice, refetchNoPrice]);
-
-  // Format values for display
-  const formattedUsdcBalance = usdcBalance ? formatUnits(usdcBalance, 6) : "0";
-  const formattedYesPrice = yesPrice ? formatUnits(yesPrice, 18) : "0.6";
-  const formattedNoPrice = noPrice ? formatUnits(noPrice, 18) : "0.4";
+  // Refresh all balances
+  const refreshBalances = useCallback(async () => {
+    refetchBalance();
+    if (tokenXAddress) refetchNoTokenBalance();
+    if (tokenYAddress) refetchYesTokenBalance();
+    refetchYesPrice();
+    refetchNoPrice();
+  }, [
+    refetchBalance,
+    refetchNoTokenBalance,
+    refetchYesTokenBalance,
+    refetchYesPrice,
+    refetchNoPrice,
+    tokenXAddress,
+    tokenYAddress,
+  ]);
 
   return {
-    usdcBalance: formattedUsdcBalance,
-    yesPrice: formattedYesPrice,
-    noPrice: formattedNoPrice,
+    usdcBalance,
+    noTokenBalance,
+    yesTokenBalance,
+    yesPrice,
+    noPrice,
     mintUSDC,
     depositAndMint,
-    refetchBalances: () => {
-      refetchUsdcBalance();
-      refetchYesPrice();
-      refetchNoPrice();
-    },
-    isLoading: isLoading || isTxLoading,
-    isSuccess,
+    refreshBalances,
+    isLoading,
   };
 }
