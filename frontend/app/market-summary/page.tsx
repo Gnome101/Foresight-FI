@@ -168,10 +168,18 @@ export default function MarketSummaryPage() {
   };
 
   // Format date for display
-  const formatDate = (timestamp: number) => {
-    return new Date(timestamp).toLocaleString();
-  };
-
+ const formatDate = (timestamp: number | bigint) => {
+  // Convert BigInt to number if needed
+  let numericTimestamp = typeof timestamp === 'bigint' ? Number(timestamp) : timestamp;
+  
+  // Convert from seconds to milliseconds if the timestamp appears to be in seconds
+  // (blockchain timestamps are typically in seconds, not milliseconds)
+  if (numericTimestamp < 4102444800) { // timestamp before year 2100
+    numericTimestamp *= 1000;
+  }
+  
+  return new Date(numericTimestamp).toLocaleString();
+};
   // Check if key registration is still open
   const isKeyRegistrationOpen = currentMarket && 
     Date.now() < currentMarket.keyRegistrationExpiration;
@@ -249,7 +257,7 @@ export default function MarketSummaryPage() {
                 >
                   {showDetails ? "Hide Technical Details" : "Show Technical Details"}
                 </Button>
-                
+                      
                 {showDetails && (
                   <div className="space-y-4 mt-4 p-4 bg-gray-50 rounded-md">
                     <div>

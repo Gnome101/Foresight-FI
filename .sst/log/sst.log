@@ -1,155 +1,272 @@
-time=2025-02-28T00:42:38.977-07:00 level=INFO msg="checking for pulumi" path=/home/thegnome/.config/sst/bin/pulumi
-time=2025-02-28T00:42:39.543-07:00 level=INFO msg="checking for bun" path=/home/thegnome/.config/sst/bin/bun
-time=2025-02-28T00:42:39.556-07:00 level=INFO msg="initializing project" version=3.9.10
-time=2025-02-28T00:42:39.557-07:00 level=INFO msg="esbuild building" out=/home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/platform/sst.config.1740728559557.mjs
-time=2025-02-28T00:42:39.561-07:00 level=INFO msg="esbuild built" outfile=/home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/platform/sst.config.1740728559557.mjs
-time=2025-02-28T00:42:39.562-07:00 level=INFO msg="evaluating config"
-time=2025-02-28T00:42:39.587-07:00 level=INFO msg="config evaluated"
-time=2025-02-28T00:42:39.588-07:00 level=INFO msg="checking platform"
-time=2025-02-28T00:42:39.588-07:00 level=INFO msg="loading home"
-time=2025-02-28T00:42:39.599-07:00 level=INFO msg="aws credentials found" region=us-east-1 profile=""
-time=2025-02-28T00:42:39.599-07:00 level=INFO msg="fetching bootstrap"
-time=2025-02-28T00:42:39.835-07:00 level=INFO msg="found existing bootstrap" data="{\"version\":5,\"asset\":\"sst-asset-ruzwrcekfzsm\",\"assetEcrRegistryId\":\"767397930251\",\"assetEcrUrl\":\"767397930251.dkr.ecr.us-east-1.amazonaws.com/sst-asset\",\"state\":\"sst-state-ruzwrcekfzsm\",\"appsyncHttp\":\"\",\"appsyncRealtime\":\"\"}"
-time=2025-02-28T00:42:39.835-07:00 level=INFO msg="loaded config" app=sst-web3-boilerplate stage=thegnome
-time=2025-02-28T00:42:39.835-07:00 level=INFO msg=mosaic project=/home/thegnome/cryptoTIme/sst-web3-boilerplate
-time=2025-02-28T00:42:39.835-07:00 level=INFO msg="starting watcher" service=watcher root=/home/thegnome/cryptoTIme/sst-web3-boilerplate
-time=2025-02-28T00:42:39.835-07:00 level=INFO msg="server port assigned" port=13557
-time=2025-02-28T00:42:39.835-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate
-time=2025-02-28T00:42:39.835-07:00 level=INFO msg="getting endpoint"
-time=2025-02-28T00:42:39.835-07:00 level=INFO msg=starting service=dev
-time=2025-02-28T00:42:39.835-07:00 level=INFO msg=starting service=server
-time=2025-02-28T00:42:39.836-07:00 level=INFO msg=starting service=deployer
-time=2025-02-28T00:42:39.836-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:42:39.836-07:00 level=INFO msg=server service=server addr=0.0.0.0:13557
-time=2025-02-28T00:42:39.836-07:00 level=INFO msg=resize
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/abi
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/create-market
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/market-summary
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/ui
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/config
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/context
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/lib
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/public
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/src
-time=2025-02-28T00:42:39.846-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/infra
-time=2025-02-28T00:42:40.388-07:00 level=INFO msg="found appsync" rest=hwk73njkzvef3gpawjdvhyd7q4.appsync-api.us-east-1.amazonaws.com realtime=hwk73njkzvef3gpawjdvhyd7q4.appsync-realtime-api.us-east-1.amazonaws.com
-time=2025-02-28T00:42:40.388-07:00 level=INFO msg="checking if appsync is ready"
-time=2025-02-28T00:42:40.506-07:00 level=INFO msg=subscribed service=dev addr=127.0.0.1:38624
-time=2025-02-28T00:42:40.518-07:00 level=INFO msg=subscribed service=dev addr=127.0.0.1:38626
-time=2025-02-28T00:42:40.519-07:00 level=INFO msg="deploy requested" service=dev
-time=2025-02-28T00:42:40.519-07:00 level=INFO msg=deploying service=deployer
-time=2025-02-28T00:42:40.519-07:00 level=INFO msg="running stack command" service=project.run cmd=deploy
-time=2025-02-28T00:42:40.519-07:00 level=INFO msg="INFO locking app=sst-web3-boilerplate stage=thegnome"
-time=2025-02-28T00:42:40.519-07:00 level=INFO msg="INFO getting data key=lock app=sst-web3-boilerplate stage=thegnome"
-time=2025-02-28T00:42:40.663-07:00 level=INFO msg="INFO connecting service=appsync.connection"
-time=2025-02-28T00:42:41.006-07:00 level=INFO msg="INFO putting update app=sst-web3-boilerplate stage=thegnome"
-time=2025-02-28T00:42:41.083-07:00 level=INFO msg="INFO connect message service=appsync.connection msg=\"map[connectionTimeoutMs:300000 type:connection_ack]\""
-time=2025-02-28T00:42:41.083-07:00 level=INFO msg="subscribing to" prefix=/sst/sst-web3-boilerplate/thegnome/in
-time=2025-02-28T00:42:41.083-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
-time=2025-02-28T00:42:41.196-07:00 level=INFO msg="INFO getting passphrase app=sst-web3-boilerplate stage=thegnome"
-time=2025-02-28T00:42:41.364-07:00 level=INFO msg="INFO msg service=appsync.connection type=subscribe_success id=01954b81edbbf2a2f9db3963"
-time=2025-02-28T00:42:41.364-07:00 level=INFO msg="INFO subscribed service=appsync.connection channel=/sst/sst-web3-boilerplate/thegnome/in id=01954b81edbbf2a2f9db3963"
-time=2025-02-28T00:42:41.364-07:00 level=INFO msg=starting service=aws.task
-time=2025-02-28T00:42:41.432-07:00 level=INFO msg="INFO pulling state app=sst-web3-boilerplate stage=thegnome out=/home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/pulumi/fe6ab47e14788d9f9a945281/.pulumi/stacks/sst-web3-boilerplate/thegnome.json"
-time=2025-02-28T00:42:41.819-07:00 level=INFO msg="got previous deployment" service=project.run updateID=fe6ab47e14788d9f9a945281
-time=2025-02-28T00:42:41.819-07:00 level=INFO msg="esbuild building" out=/home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/platform/sst.config.1740728561432.mjs
-time=2025-02-28T00:42:41.877-07:00 level=INFO msg="esbuild built" outfile=/home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/platform/sst.config.1740728561432.mjs
-time=2025-02-28T00:42:41.881-07:00 level=INFO msg="built sst.config.ts" service=project.run updateID=fe6ab47e14788d9f9a945281 to=/home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/platform/sst.config.1740728561432.mjs
-time=2025-02-28T00:42:41.883-07:00 level=INFO msg="tracked files" service=project.run updateID=fe6ab47e14788d9f9a945281
-time=2025-02-28T00:42:41.883-07:00 level=INFO msg="INFO getting data key=secret app=sst-web3-boilerplate stage=_fallback"
-time=2025-02-28T00:42:41.883-07:00 level=INFO msg="INFO getting data key=secret app=sst-web3-boilerplate stage=thegnome"
-time=2025-02-28T00:42:42.115-07:00 level=INFO msg="INFO getting passphrase app=sst-web3-boilerplate stage=thegnome"
-time=2025-02-28T00:42:42.362-07:00 level=INFO msg="starting pulumi" service=project.run updateID=fe6ab47e14788d9f9a945281 args="[/home/thegnome/.config/sst/bin/pulumi up --yes -f --stack organization/sst-web3-boilerplate/thegnome --non-interactive --event-log /home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/pulumi/fe6ab47e14788d9f9a945281/eventlog.json --config aws:defaultTags={\"tags\":{\"sst:app\":\"sst-web3-boilerplate\",\"sst:stage\":\"thegnome\"}} --config aws:region=us-east-1]"
-time=2025-02-28T00:42:42.586-07:00 level=INFO msg=subscribed service=dev addr=127.0.0.1:58018
-time=2025-02-28T00:42:42.587-07:00 level=INFO msg="matching dev" service=dev full=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend directory=""
-time=2025-02-28T00:42:42.587-07:00 level=INFO msg="loading aws credentials" service=project.env resource=Frontend role=arn:aws:iam::767397930251:role/sst-web3-boilerplate-thegnome-FrontendDevServerRole-wsdouaho
-time=2025-02-28T00:42:42.832-07:00 level=ERROR msg="failed to load aws credentials" service=project.env resource=Frontend err=<nil>
-time=2025-02-28T00:42:42.832-07:00 level=INFO msg=dev service=project.env resource=Frontend links=[REOWN_PROJECT_ID]
-time=2025-02-28T00:42:47.361-07:00 level=INFO msg="INFO pushing partial state updateID=fe6ab47e14788d9f9a945281"
-time=2025-02-28T00:42:49.563-07:00 level=INFO msg="rpc request" method=POST url=/rpc
-time=2025-02-28T00:42:49.566-07:00 level=INFO msg="rpc request" method=POST url=/rpc
-time=2025-02-28T00:42:49.566-07:00 level=INFO msg="building function" runtime=nodejs20.x functionID=FrontendDevServer
-time=2025-02-28T00:42:49.567-07:00 level=INFO msg="function built" runtime=nodejs20.x functionID=FrontendDevServer
-time=2025-02-28T00:42:49.623-07:00 level=INFO msg="rpc request" method=POST url=/rpc
-time=2025-02-28T00:42:49.688-07:00 level=INFO msg="pulumi exited" service=project.run updateID=fe6ab47e14788d9f9a945281 err=<nil>
-time=2025-02-28T00:42:49.689-07:00 level=INFO msg="eof and exited" service=project.run updateID=fe6ab47e14788d9f9a945281 eofs=0
-time=2025-02-28T00:42:49.689-07:00 level=INFO msg="eof and exited" service=project.run updateID=fe6ab47e14788d9f9a945281 eofs=1
-time=2025-02-28T00:42:49.689-07:00 level=INFO msg="breaking out of tail loop" service=project.run updateID=fe6ab47e14788d9f9a945281
-time=2025-02-28T00:42:49.689-07:00 level=INFO msg="parsing state" service=project.run updateID=fe6ab47e14788d9f9a945281
-time=2025-02-28T00:42:49.689-07:00 level=INFO msg="INFO pushing partial state updateID=fe6ab47e14788d9f9a945281"
-time=2025-02-28T00:42:49.821-07:00 level=INFO msg="generating types" root=/home/thegnome/cryptoTIme/sst-web3-boilerplate
-time=2025-02-28T00:42:49.821-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/sst-env.d.ts op=WRITE
-time=2025-02-28T00:42:49.821-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/sst-env.d.ts op=WRITE
-time=2025-02-28T00:42:49.821-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/sst-env.d.ts op=WRITE
-time=2025-02-28T00:42:49.821-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/sst-env.d.ts op=WRITE
-time=2025-02-28T00:42:49.821-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/sst-env.d.ts
-time=2025-02-28T00:42:49.821-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/sst-env.d.ts
-time=2025-02-28T00:42:49.822-07:00 level=INFO msg="canceling partial" service=project.run updateID=fe6ab47e14788d9f9a945281
-time=2025-02-28T00:42:49.822-07:00 level=INFO msg="waiting for partial to exit" service=project.run updateID=fe6ab47e14788d9f9a945281
-time=2025-02-28T00:42:49.994-07:00 level=INFO msg="INFO pushing eventlog updateID=fe6ab47e14788d9f9a945281"
-time=2025-02-28T00:42:49.995-07:00 level=INFO msg="INFO pushing snapshot updateID=fe6ab47e14788d9f9a945281"
-time=2025-02-28T00:42:50.357-07:00 level=INFO msg="INFO putting update app=sst-web3-boilerplate stage=thegnome"
-time=2025-02-28T00:42:50.555-07:00 level=INFO msg="done running stack command" service=project.run updateID=fe6ab47e14788d9f9a945281
-time=2025-02-28T00:42:50.556-07:00 level=INFO msg="INFO unlocking app=sst-web3-boilerplate stage=thegnome"
-time=2025-02-28T00:42:50.556-07:00 level=INFO msg="matching dev" service=dev full=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend directory=""
-time=2025-02-28T00:42:50.556-07:00 level=INFO msg="loading aws credentials" service=project.env resource=Frontend role=arn:aws:iam::767397930251:role/sst-web3-boilerplate-thegnome-FrontendDevServerRole-wsdouaho
-time=2025-02-28T00:42:50.749-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:42:50.749-07:00 level=INFO msg="build hash" service=deployer hash=iXZLsTKOld0
-time=2025-02-28T00:42:50.749-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:42:50.749-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:42:50.750-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:42:50.783-07:00 level=ERROR msg="failed to load aws credentials" service=project.env resource=Frontend err=<nil>
-time=2025-02-28T00:42:50.783-07:00 level=INFO msg=dev service=project.env resource=Frontend links=[REOWN_PROJECT_ID]
-time=2025-02-28T00:43:41.037-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
-time=2025-02-28T00:44:41.041-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
-time=2025-02-28T00:45:41.038-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
-time=2025-02-28T00:46:41.040-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
-time=2025-02-28T00:47:41.039-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
-time=2025-02-28T00:48:41.040-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
-time=2025-02-28T00:49:41.038-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
-time=2025-02-28T00:50:41.038-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
-time=2025-02-28T00:51:41.038-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
-time=2025-02-28T00:52:41.039-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
-time=2025-02-28T00:53:18.571-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
-time=2025-02-28T00:53:18.571-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:53:18.571-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts
-time=2025-02-28T00:53:18.571-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
-time=2025-02-28T00:53:20.751-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
-time=2025-02-28T00:53:20.751-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:53:20.751-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts
-time=2025-02-28T00:53:20.751-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
-time=2025-02-28T00:53:24.119-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
-time=2025-02-28T00:53:24.119-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:53:24.119-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts
-time=2025-02-28T00:53:24.119-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
-time=2025-02-28T00:53:25.392-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
-time=2025-02-28T00:53:25.393-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:53:25.393-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts
-time=2025-02-28T00:53:25.393-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
-time=2025-02-28T00:53:26.999-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
-time=2025-02-28T00:53:26.999-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:53:26.999-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts
-time=2025-02-28T00:53:26.999-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
-time=2025-02-28T00:53:31.622-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
-time=2025-02-28T00:53:31.622-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:53:31.622-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts
-time=2025-02-28T00:53:31.622-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/usePredictionMarket.ts op=WRITE
-time=2025-02-28T00:53:34.036-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
-time=2025-02-28T00:53:34.036-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:53:34.036-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts
-time=2025-02-28T00:53:34.036-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
-time=2025-02-28T00:53:35.473-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
-time=2025-02-28T00:53:35.473-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:53:35.473-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts
-time=2025-02-28T00:53:35.473-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
-time=2025-02-28T00:53:36.607-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
-time=2025-02-28T00:53:36.607-07:00 level=INFO msg="waiting for trigger" service=deployer
-time=2025-02-28T00:53:36.607-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts
-time=2025-02-28T00:53:36.607-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks/useMarketCreation.ts op=WRITE
-time=2025-02-28T00:53:41.039-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:29:44.565-07:00 level=INFO msg="checking for pulumi" path=/home/thegnome/.config/sst/bin/pulumi
+time=2025-03-01T00:29:44.933-07:00 level=INFO msg="checking for bun" path=/home/thegnome/.config/sst/bin/bun
+time=2025-03-01T00:29:44.934-07:00 level=INFO msg="initializing project" version=3.9.10
+time=2025-03-01T00:29:44.934-07:00 level=INFO msg="esbuild building" out=/home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/platform/sst.config.1740814184934.mjs
+time=2025-03-01T00:29:44.936-07:00 level=INFO msg="esbuild built" outfile=/home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/platform/sst.config.1740814184934.mjs
+time=2025-03-01T00:29:44.937-07:00 level=INFO msg="evaluating config"
+time=2025-03-01T00:29:44.963-07:00 level=INFO msg="config evaluated"
+time=2025-03-01T00:29:44.963-07:00 level=INFO msg="checking platform"
+time=2025-03-01T00:29:44.964-07:00 level=INFO msg="loading home"
+time=2025-03-01T00:29:44.975-07:00 level=INFO msg="aws credentials found" region=us-east-1 profile=""
+time=2025-03-01T00:29:44.975-07:00 level=INFO msg="fetching bootstrap"
+time=2025-03-01T00:29:45.196-07:00 level=INFO msg="found existing bootstrap" data="{\"version\":5,\"asset\":\"sst-asset-ruzwrcekfzsm\",\"assetEcrRegistryId\":\"767397930251\",\"assetEcrUrl\":\"767397930251.dkr.ecr.us-east-1.amazonaws.com/sst-asset\",\"state\":\"sst-state-ruzwrcekfzsm\",\"appsyncHttp\":\"\",\"appsyncRealtime\":\"\"}"
+time=2025-03-01T00:29:45.196-07:00 level=INFO msg="loaded config" app=sst-web3-boilerplate stage=thegnome
+time=2025-03-01T00:29:45.196-07:00 level=INFO msg=mosaic project=/home/thegnome/cryptoTIme/sst-web3-boilerplate
+time=2025-03-01T00:29:45.196-07:00 level=INFO msg="starting watcher" service=watcher root=/home/thegnome/cryptoTIme/sst-web3-boilerplate
+time=2025-03-01T00:29:45.196-07:00 level=INFO msg="server port assigned" port=13557
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg="getting endpoint"
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=starting service=dev
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=starting service=server
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/abi
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=server service=server addr=0.0.0.0:13557
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/create-market
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/market-summary
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=starting service=deployer
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=resize
+time=2025-03-01T00:29:45.197-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/ui
+time=2025-03-01T00:29:45.198-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/config
+time=2025-03-01T00:29:45.198-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/context
+time=2025-03-01T00:29:45.198-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/hooks
+time=2025-03-01T00:29:45.198-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/lib
+time=2025-03-01T00:29:45.198-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/public
+time=2025-03-01T00:29:45.198-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/src
+time=2025-03-01T00:29:45.198-07:00 level=INFO msg=watching service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/infra
+time=2025-03-01T00:29:45.580-07:00 level=INFO msg="found appsync" rest=hwk73njkzvef3gpawjdvhyd7q4.appsync-api.us-east-1.amazonaws.com realtime=hwk73njkzvef3gpawjdvhyd7q4.appsync-realtime-api.us-east-1.amazonaws.com
+time=2025-03-01T00:29:45.580-07:00 level=INFO msg="checking if appsync is ready"
+time=2025-03-01T00:29:45.819-07:00 level=INFO msg=subscribed service=dev addr=127.0.0.1:43684
+time=2025-03-01T00:29:45.819-07:00 level=INFO msg="deploy requested" service=dev
+time=2025-03-01T00:29:45.819-07:00 level=INFO msg=deploying service=deployer
+time=2025-03-01T00:29:45.819-07:00 level=INFO msg="running stack command" service=project.run cmd=deploy
+time=2025-03-01T00:29:45.819-07:00 level=INFO msg="INFO locking app=sst-web3-boilerplate stage=thegnome"
+time=2025-03-01T00:29:45.819-07:00 level=INFO msg="INFO getting data key=lock app=sst-web3-boilerplate stage=thegnome"
+time=2025-03-01T00:29:45.820-07:00 level=INFO msg="INFO connecting service=appsync.connection"
+time=2025-03-01T00:29:45.827-07:00 level=INFO msg=subscribed service=dev addr=127.0.0.1:43698
+time=2025-03-01T00:29:46.237-07:00 level=INFO msg="INFO connect message service=appsync.connection msg=\"map[connectionTimeoutMs:300000 type:connection_ack]\""
+time=2025-03-01T00:29:46.237-07:00 level=INFO msg="subscribing to" prefix=/sst/sst-web3-boilerplate/thegnome/in
+time=2025-03-01T00:29:46.237-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:29:46.258-07:00 level=INFO msg="INFO putting update app=sst-web3-boilerplate stage=thegnome"
+time=2025-03-01T00:29:46.489-07:00 level=INFO msg="INFO getting passphrase app=sst-web3-boilerplate stage=thegnome"
+time=2025-03-01T00:29:46.516-07:00 level=INFO msg="INFO msg service=appsync.connection type=subscribe_success id=0195509c76fd5de817b0e087"
+time=2025-03-01T00:29:46.516-07:00 level=INFO msg="INFO subscribed service=appsync.connection channel=/sst/sst-web3-boilerplate/thegnome/in id=0195509c76fd5de817b0e087"
+time=2025-03-01T00:29:46.516-07:00 level=INFO msg=starting service=aws.task
+time=2025-03-01T00:29:46.759-07:00 level=INFO msg="INFO pulling state app=sst-web3-boilerplate stage=thegnome out=/home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/pulumi/fe6aaf638aa43766fe76d5d0/.pulumi/stacks/sst-web3-boilerplate/thegnome.json"
+time=2025-03-01T00:29:47.175-07:00 level=INFO msg="got previous deployment" service=project.run updateID=fe6aaf638aa43766fe76d5d0
+time=2025-03-01T00:29:47.175-07:00 level=INFO msg="esbuild building" out=/home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/platform/sst.config.1740814186759.mjs
+time=2025-03-01T00:29:47.220-07:00 level=INFO msg="esbuild built" outfile=/home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/platform/sst.config.1740814186759.mjs
+time=2025-03-01T00:29:47.225-07:00 level=INFO msg="built sst.config.ts" service=project.run updateID=fe6aaf638aa43766fe76d5d0 to=/home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/platform/sst.config.1740814186759.mjs
+time=2025-03-01T00:29:47.227-07:00 level=INFO msg="tracked files" service=project.run updateID=fe6aaf638aa43766fe76d5d0
+time=2025-03-01T00:29:47.227-07:00 level=INFO msg="INFO getting data key=secret app=sst-web3-boilerplate stage=_fallback"
+time=2025-03-01T00:29:47.227-07:00 level=INFO msg="INFO getting data key=secret app=sst-web3-boilerplate stage=thegnome"
+time=2025-03-01T00:29:47.408-07:00 level=INFO msg="INFO getting passphrase app=sst-web3-boilerplate stage=thegnome"
+time=2025-03-01T00:29:47.671-07:00 level=INFO msg="starting pulumi" service=project.run updateID=fe6aaf638aa43766fe76d5d0 args="[/home/thegnome/.config/sst/bin/pulumi up --yes -f --stack organization/sst-web3-boilerplate/thegnome --non-interactive --event-log /home/thegnome/cryptoTIme/sst-web3-boilerplate/.sst/pulumi/fe6aaf638aa43766fe76d5d0/eventlog.json --config aws:defaultTags={\"tags\":{\"sst:app\":\"sst-web3-boilerplate\",\"sst:stage\":\"thegnome\"}} --config aws:region=us-east-1]"
+time=2025-03-01T00:29:47.916-07:00 level=INFO msg=subscribed service=dev addr=127.0.0.1:43710
+time=2025-03-01T00:29:47.918-07:00 level=INFO msg="matching dev" service=dev full=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend directory=""
+time=2025-03-01T00:29:47.918-07:00 level=INFO msg="loading aws credentials" service=project.env resource=Frontend role=arn:aws:iam::767397930251:role/sst-web3-boilerplate-thegnome-FrontendDevServerRole-wsdouaho
+time=2025-03-01T00:29:48.193-07:00 level=ERROR msg="failed to load aws credentials" service=project.env resource=Frontend err=<nil>
+time=2025-03-01T00:29:48.193-07:00 level=INFO msg=dev service=project.env resource=Frontend links=[REOWN_PROJECT_ID]
+time=2025-03-01T00:29:52.098-07:00 level=INFO msg="INFO pushing partial state updateID=fe6aaf638aa43766fe76d5d0"
+time=2025-03-01T00:29:52.331-07:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2025-03-01T00:29:52.487-07:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2025-03-01T00:29:52.487-07:00 level=INFO msg="building function" runtime=nodejs20.x functionID=FrontendDevServer
+time=2025-03-01T00:29:52.487-07:00 level=INFO msg="function built" runtime=nodejs20.x functionID=FrontendDevServer
+time=2025-03-01T00:29:52.559-07:00 level=INFO msg="rpc request" method=POST url=/rpc
+time=2025-03-01T00:29:52.633-07:00 level=INFO msg="pulumi exited" service=project.run updateID=fe6aaf638aa43766fe76d5d0 err=<nil>
+time=2025-03-01T00:29:52.633-07:00 level=INFO msg="eof and exited" service=project.run updateID=fe6aaf638aa43766fe76d5d0 eofs=0
+time=2025-03-01T00:29:52.633-07:00 level=INFO msg="eof and exited" service=project.run updateID=fe6aaf638aa43766fe76d5d0 eofs=1
+time=2025-03-01T00:29:52.633-07:00 level=INFO msg="breaking out of tail loop" service=project.run updateID=fe6aaf638aa43766fe76d5d0
+time=2025-03-01T00:29:52.633-07:00 level=INFO msg="parsing state" service=project.run updateID=fe6aaf638aa43766fe76d5d0
+time=2025-03-01T00:29:52.633-07:00 level=INFO msg="INFO pushing partial state updateID=fe6aaf638aa43766fe76d5d0"
+time=2025-03-01T00:29:52.770-07:00 level=INFO msg="generating types" root=/home/thegnome/cryptoTIme/sst-web3-boilerplate
+time=2025-03-01T00:29:52.771-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/sst-env.d.ts op=WRITE
+time=2025-03-01T00:29:52.771-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/sst-env.d.ts op=WRITE
+time=2025-03-01T00:29:52.771-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/sst-env.d.ts op=WRITE
+time=2025-03-01T00:29:52.771-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/sst-env.d.ts
+time=2025-03-01T00:29:52.771-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/sst-env.d.ts
+time=2025-03-01T00:29:52.771-07:00 level=INFO msg="canceling partial" service=project.run updateID=fe6aaf638aa43766fe76d5d0
+time=2025-03-01T00:29:52.771-07:00 level=INFO msg="waiting for partial to exit" service=project.run updateID=fe6aaf638aa43766fe76d5d0
+time=2025-03-01T00:29:52.936-07:00 level=INFO msg="INFO pushing eventlog updateID=fe6aaf638aa43766fe76d5d0"
+time=2025-03-01T00:29:52.936-07:00 level=INFO msg="INFO pushing snapshot updateID=fe6aaf638aa43766fe76d5d0"
+time=2025-03-01T00:29:53.261-07:00 level=INFO msg="INFO putting update app=sst-web3-boilerplate stage=thegnome"
+time=2025-03-01T00:29:53.466-07:00 level=INFO msg="done running stack command" service=project.run updateID=fe6aaf638aa43766fe76d5d0
+time=2025-03-01T00:29:53.467-07:00 level=INFO msg="INFO unlocking app=sst-web3-boilerplate stage=thegnome"
+time=2025-03-01T00:29:53.467-07:00 level=INFO msg="matching dev" service=dev full=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend directory=""
+time=2025-03-01T00:29:53.467-07:00 level=INFO msg="loading aws credentials" service=project.env resource=Frontend role=arn:aws:iam::767397930251:role/sst-web3-boilerplate-thegnome-FrontendDevServerRole-wsdouaho
+time=2025-03-01T00:29:53.685-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T00:29:53.685-07:00 level=INFO msg="build hash" service=deployer hash=iXZLsTKOld0
+time=2025-03-01T00:29:53.685-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T00:29:53.685-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T00:29:53.685-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T00:29:54.738-07:00 level=ERROR msg="failed to load aws credentials" service=project.env resource=Frontend err=<nil>
+time=2025-03-01T00:29:54.738-07:00 level=INFO msg=dev service=project.env resource=Frontend links=[REOWN_PROJECT_ID]
+time=2025-03-01T00:30:46.192-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:31:46.192-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:32:46.193-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:33:46.193-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:34:46.194-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:35:46.193-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:36:46.193-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:37:46.194-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:38:46.195-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:39:46.194-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:40:46.194-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:41:46.194-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:42:46.196-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:43:46.195-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:44:46.195-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:45:46.196-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:46:46.196-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:47:46.195-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:48:46.196-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:49:46.198-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:50:46.195-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:51:46.196-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:52:46.196-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:53:46.196-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:54:46.196-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:55:46.196-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:56:46.197-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:57:46.197-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:58:46.196-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T00:59:46.204-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:00:46.197-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:01:46.204-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:02:46.200-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:03:46.198-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:04:46.197-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:05:46.198-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:06:46.198-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:07:46.198-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:08:46.198-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:09:46.198-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:10:46.198-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:11:46.199-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:12:46.199-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:13:46.199-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:14:46.200-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:14:54.743-07:00 level=INFO msg="matching dev" service=dev full=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend directory=""
+time=2025-03-01T01:14:54.743-07:00 level=INFO msg="loading aws credentials" service=project.env resource=Frontend role=arn:aws:iam::767397930251:role/sst-web3-boilerplate-thegnome-FrontendDevServerRole-wsdouaho
+time=2025-03-01T01:14:54.984-07:00 level=ERROR msg="failed to load aws credentials" service=project.env resource=Frontend err=<nil>
+time=2025-03-01T01:14:54.984-07:00 level=INFO msg=dev service=project.env resource=Frontend links=[REOWN_PROJECT_ID]
+time=2025-03-01T01:15:46.199-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:16:46.199-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:17:46.200-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:18:46.200-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:19:46.200-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:20:46.200-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:21:46.201-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:22:46.201-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:23:46.201-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:24:46.202-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:25:46.202-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:26:46.202-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:27:46.201-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:28:46.202-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:29:46.201-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:30:46.202-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:31:46.202-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:32:46.202-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:33:46.202-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:34:46.203-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:35:46.203-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:36:46.203-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:37:46.203-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:38:02.034-07:00 level=INFO msg=resize
+time=2025-03-01T01:38:02.038-07:00 level=INFO msg=resize
+time=2025-03-01T01:38:46.203-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:39:46.204-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:40:46.204-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:41:46.204-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:42:46.204-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:43:46.205-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:44:46.205-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:45:46.205-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:46:46.205-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:47:46.205-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:48:46.205-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:49:46.207-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:50:46.211-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:51:46.206-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:52:46.206-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:53:46.206-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:54:46.206-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:55:46.206-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:56:46.208-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:57:46.207-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:58:46.207-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T01:59:46.207-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:00:00.009-07:00 level=INFO msg="matching dev" service=dev full=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend directory=""
+time=2025-03-01T02:00:00.009-07:00 level=INFO msg="loading aws credentials" service=project.env resource=Frontend role=arn:aws:iam::767397930251:role/sst-web3-boilerplate-thegnome-FrontendDevServerRole-wsdouaho
+time=2025-03-01T02:00:00.236-07:00 level=ERROR msg="failed to load aws credentials" service=project.env resource=Frontend err=<nil>
+time=2025-03-01T02:00:00.236-07:00 level=INFO msg=dev service=project.env resource=Frontend links=[REOWN_PROJECT_ID]
+time=2025-03-01T02:00:46.207-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:01:46.207-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:02:46.207-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:03:46.207-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:04:46.207-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:05:46.208-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:06:46.208-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:07:46.208-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:08:46.208-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:09:46.208-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:10:46.208-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:11:34.846-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts op=WRITE
+time=2025-03-01T02:11:34.847-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts op=WRITE
+time=2025-03-01T02:11:34.847-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T02:11:34.847-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts
+time=2025-03-01T02:11:46.209-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:11:47.347-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts op=WRITE
+time=2025-03-01T02:11:47.347-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T02:11:47.347-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts
+time=2025-03-01T02:11:47.347-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts op=WRITE
+time=2025-03-01T02:11:57.616-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T02:11:57.617-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T02:11:57.617-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T02:11:57.617-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts
+time=2025-03-01T02:12:19.333-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T02:12:19.334-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T02:12:19.334-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts
+time=2025-03-01T02:12:19.334-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T02:12:24.885-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T02:12:24.886-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T02:12:24.886-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts
+time=2025-03-01T02:12:24.886-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T02:12:28.045-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts op=WRITE
+time=2025-03-01T02:12:28.045-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts op=WRITE
+time=2025-03-01T02:12:28.045-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T02:12:28.045-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts
+time=2025-03-01T02:12:46.209-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:13:01.391-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T02:13:01.391-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T02:13:01.391-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts
+time=2025-03-01T02:13:01.391-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T02:13:46.208-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:14:46.209-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:15:46.209-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:16:46.209-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:17:46.209-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:18:46.209-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:19:46.210-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:20:27.278-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts op=WRITE
+time=2025-03-01T02:20:27.278-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts op=WRITE
+time=2025-03-01T02:20:27.278-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T02:20:27.278-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts
+time=2025-03-01T02:20:38.460-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts op=WRITE
+time=2025-03-01T02:20:38.460-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T02:20:38.460-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts op=WRITE
+time=2025-03-01T02:20:38.460-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts
+time=2025-03-01T02:20:46.210-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:20:52.672-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T02:20:52.672-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T02:20:52.672-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T02:20:52.672-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts
+time=2025-03-01T02:21:46.210-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:22:46.210-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:23:46.211-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T02:24:46.210-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"

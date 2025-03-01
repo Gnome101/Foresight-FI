@@ -1,5 +1,6 @@
-time=2025-02-28T00:42:40.134-07:00 level=INFO msg="checking for pulumi" path=/home/thegnome/.config/sst/bin/pulumi
-time=2025-02-28T00:42:40.516-07:00 level=INFO msg="checking for bun" path=/home/thegnome/.config/sst/bin/bun
-time=2025-02-28T00:42:40.517-07:00 level=INFO msg="initializing ui" isTTY=true
-time=2025-02-28T00:42:40.518-07:00 level=INFO msg="initializing ui" isTTY=true
-time=2025-02-28T00:42:40.518-07:00 level=INFO msg="initialized ui"
+time=2025-03-01T00:29:45.482-07:00 level=INFO msg="checking for pulumi" path=/home/thegnome/.config/sst/bin/pulumi
+time=2025-03-01T00:29:45.826-07:00 level=INFO msg="checking for bun" path=/home/thegnome/.config/sst/bin/bun
+time=2025-03-01T00:29:45.827-07:00 level=INFO msg="initializing ui" isTTY=true
+time=2025-03-01T00:29:45.827-07:00 level=INFO msg="initialized ui"
+ isTTY=true
+time=2025-03-01T00:29:45.819-07:00 level=INFO msg="initialized ui"
