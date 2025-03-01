@@ -8,12 +8,12 @@ if (!projectId) {
 }
 
 // Continue with your setup
-import { cookieStorage, createStorage, http } from '@wagmi/core';
+import { cookieStorage, createStorage} from '@wagmi/core';
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi';
-import { mainnet, arbitrum, baseSepolia } from '@reown/appkit/networks';
+import {  unichainSepolia } from '@reown/appkit/networks';
 
 // Make sure baseSepolia is in the networks array
-export const networks = [mainnet, arbitrum, baseSepolia];
+export const networks = [unichainSepolia];
 
 export const wagmiAdapter = new WagmiAdapter({
   storage: createStorage({

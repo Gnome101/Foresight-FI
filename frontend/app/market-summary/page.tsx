@@ -11,6 +11,7 @@ import { toast } from 'sonner';
 import { useAppKitAccount } from '@reown/appkit/react';
 import { useMarketCreation } from '@/hooks/useMarketCreation';
 import { useEncryption } from '@/hooks/useEncryption';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 // Common private key for testing
 const COMMON_PRIVATE_KEY = "17198111189740987207522258066070924659068354664866153349209472785674371270060091762895376871405096450964189332505989014717404517835761512453664757667426820217481440982146617209935641204979498323812441179740390809704275764217718676871508299641960392693502986024702569368107809778413850853826168369425962712173790018017361397615845706791905366069526727215230586745271719003886933530843871633556938220645881606394868643579850622075915590012962791258951480013534977101779599471939324439360030244729834387834027239088977696746477158659363343219175191100820364097049332480659184824130271435766049092620682590274475536856966";
@@ -23,7 +24,7 @@ export default function MarketSummaryPage() {
     useCommonPublicKey,
     chooseWinner, 
     refetchMarket, 
-    isLoading: marketLoading
+    isLoading: marketLoading 
   } = useMarketCreation();
   
   const { 
@@ -36,9 +37,10 @@ export default function MarketSummaryPage() {
   const [vote, setVote] = useState<'yes' | 'no'>('yes');
   const [customDecryptShare, setCustomDecryptShare] = useState('');
   const [showDetails, setShowDetails] = useState(false);
+  const [activeTab, setActiveTab] = useState('keys');
 
   const isLoading = marketLoading || encryptionLoading;
-
+  
   // Refresh market data when component mounts and periodically
   useEffect(() => {
     // Initial fetch
@@ -53,6 +55,7 @@ export default function MarketSummaryPage() {
     return () => clearInterval(intervalId);
   }, [refetchMarket]);
 
+  // Handlers for key management
   const handleAddKey = () => {
     if (!isConnected) {
       toast.error("Please connect your wallet first");
@@ -90,6 +93,7 @@ export default function MarketSummaryPage() {
     );
   };
 
+  // Handlers for voting and decryption
   const handleSendVote = () => {
     if (!isConnected) {
       toast.error("Please connect your wallet first");
@@ -168,25 +172,27 @@ export default function MarketSummaryPage() {
   };
 
   // Format date for display
- const formatDate = (timestamp: number | bigint) => {
-  // Convert BigInt to number if needed
-  let numericTimestamp = typeof timestamp === 'bigint' ? Number(timestamp) : timestamp;
-  
-  // Convert from seconds to milliseconds if the timestamp appears to be in seconds
-  // (blockchain timestamps are typically in seconds, not milliseconds)
-  if (numericTimestamp < 4102444800) { // timestamp before year 2100
-    numericTimestamp *= 1000;
-  }
-  
-  return new Date(numericTimestamp).toLocaleString();
-};
-  // Check if key registration is still open
-  const isKeyRegistrationOpen = currentMarket && 
-    Date.now() < currentMarket.keyRegistrationExpiration;
+  const formatDate = (timestamp: number | bigint) => {
+    // Convert BigInt to number if needed
+    let numericTimestamp = typeof timestamp === 'bigint' ? Number(timestamp) : timestamp;
+    
+    // Convert from seconds to milliseconds if the timestamp appears to be in seconds
+    // (blockchain timestamps are typically in seconds, not milliseconds)
+    if (numericTimestamp < 4102444800) { // timestamp before year 2100
+      numericTimestamp *= 1000;
+    }
+    
+    return new Date(numericTimestamp).toLocaleString();
+  };
 
-  // Check if market has expired
-  const isMarketExpired = currentMarket && 
-    Date.now() > currentMarket.expiration;
+  // Derived state
+  const hasKeys = currentMarket?.publicKeys && currentMarket.publicKeys.length > 0;
+  const isKeyRegistrationOpen = currentMarket && Date.now()/1000 < Number(currentMarket.keyRegistrationExpiration);
+  console.log('isKeyRegistrationOpen', isKeyRegistrationOpen);
+  const isMarketExpired = currentMarket && Date.now()/1000 > Number(currentMarket.expiration);
+  // console.log(currentMarket,Date.now(),currentMarket.keyRegistrationExpiration, );
+  // console.log(Date.now())
+  // console.log('isMarketExpired', isMarketExpired);
 
   // Toggle showing technical details
   const toggleDetails = () => {
@@ -306,55 +312,156 @@ export default function MarketSummaryPage() {
               </CardContent>
             </Card>
             
-            {isKeyRegistrationOpen && (
+            {/* Tabs for Key Registration and Decryption Shares */}
+            {!currentMarket.isFinalized && (
               <Card>
                 <CardHeader>
-                  <CardTitle>Register Public Key</CardTitle>
-                  <CardDescription>
-                    You can either use the common key for testing or provide your own key.
-                  </CardDescription>
+                  <CardTitle>Market Management</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <Button
-                    onClick={handleUseCommonKey}
-                    disabled={isLoading || !isConnected}
-                    className="w-full"
-                    variant="secondary"
-                  >
-                    Use Common Public Key
-                  </Button>
-                  
-                  <div className="relative">
-                    <div className="absolute inset-0 flex items-center">
-                      <span className="w-full border-t" />
-                    </div>
-                    <div className="relative flex justify-center text-xs uppercase">
-                      <span className="bg-background px-2 text-muted-foreground">Or</span>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="publicKey">Your Public Key:</Label>
-                    <Input
-                      id="publicKey"
-                      placeholder="Enter your public key"
-                      value={publicKey}
-                      onChange={(e) => setPublicKey(e.target.value)}
-                    />
-                  </div>
-                  
-                  <Button
-                    onClick={handleAddKey}
-                    disabled={isLoading || !isConnected || !publicKey}
-                    className="w-full"
-                  >
-                    {isLoading ? 'Adding...' : 'Add Custom Key'}
-                  </Button>
+                <CardContent>
+                  <Tabs defaultValue={activeTab} onValueChange={setActiveTab} className="w-full">
+                    <TabsList className="grid w-full grid-cols-2 mb-4">
+                      <TabsTrigger value="keys">Register Keys</TabsTrigger>
+                      <TabsTrigger value="decrypt">Decrypt Shares</TabsTrigger>
+                    </TabsList>
+                    
+                    {/* Key Registration Tab */}
+                    <TabsContent value="keys" className="space-y-4">
+                      {isKeyRegistrationOpen ? (
+                        <>
+                          <CardDescription>
+                            Register a public key to participate in the encryption process.
+                          </CardDescription>
+                          
+                          <Button
+                            onClick={handleUseCommonKey}
+                            disabled={isLoading || !isConnected}
+                            className="w-full"
+                            variant="secondary"
+                          >
+                            Use Common Public Key
+                          </Button>
+                          
+                          <div className="relative">
+                            <div className="absolute inset-0 flex items-center">
+                              <span className="w-full border-t" />
+                            </div>
+                            <div className="relative flex justify-center text-xs uppercase">
+                              <span className="bg-background px-2 text-muted-foreground">Or</span>
+                            </div>
+                          </div>
+                          
+                          <div className="space-y-2">
+                            <Label htmlFor="publicKey">Your Public Key:</Label>
+                            <Input
+                              id="publicKey"
+                              placeholder="Enter your public key"
+                              value={publicKey}
+                              onChange={(e) => setPublicKey(e.target.value)}
+                            />
+                          </div>
+                          
+                          <Button
+                            onClick={handleAddKey}
+                            disabled={isLoading || !isConnected || !publicKey}
+                            className="w-full"
+                          >
+                            {isLoading ? 'Adding...' : 'Add Custom Key'}
+                          </Button>
+                        </>
+                      ) : (
+                        <div className="text-center p-4 border rounded-md bg-muted/20">
+                          <p>Key registration period has ended.</p>
+                          {hasKeys ? (
+                            <p className="text-sm text-muted-foreground mt-2">
+                              {currentMarket.publicKeys?.length} keys have been registered.
+                            </p>
+                          ) : (
+                            <p className="text-red-500 mt-2">
+                              No keys were registered during the registration period.
+                            </p>
+                          )}
+                        </div>
+                      )}
+                    </TabsContent>
+                    
+                    {/* Decryption Shares Tab */}
+                    <TabsContent value="decrypt" className="space-y-4">
+                      {isMarketExpired ? (
+                        <>
+                          <CardDescription>
+                            Submit a decryption share to help finalize the market.
+                          </CardDescription>
+                          
+                          <Button
+                            onClick={handleUseCommonDecryptShare}
+                            disabled={isLoading || !isConnected}
+                            className="w-full"
+                            variant="secondary"
+                          >
+                            Use Common Decryption Key
+                          </Button>
+                          
+                          <div className="relative">
+                            <div className="absolute inset-0 flex items-center">
+                              <span className="w-full border-t" />
+                            </div>
+                            <div className="relative flex justify-center text-xs uppercase">
+                              <span className="bg-background px-2 text-muted-foreground">Or</span>
+                            </div>
+                          </div>
+                          
+                          <div className="space-y-2">
+                            <Label htmlFor="customDecryptShare">Custom Decryption Share:</Label>
+                            <Input
+                              id="customDecryptShare"
+                              placeholder="Enter your decryption share"
+                              value={customDecryptShare}
+                              onChange={(e) => setCustomDecryptShare(e.target.value)}
+                            />
+                          </div>
+                          
+                          <Button
+                            onClick={handleAddCustomDecryptShare}
+                            disabled={isLoading || !isConnected || !customDecryptShare}
+                            className="w-full"
+                          >
+                            Add Custom Decrypt Share
+                          </Button>
+                          
+                          <div className="pt-4">
+                            <Button
+                              onClick={handleDecryptVotes}
+                              disabled={isLoading || !isConnected || (currentMarket.partialDecripts?.length || 0) === 0}
+                              className="w-full"
+                              variant="default"
+                            >
+                              Finalize Market Results
+                            </Button>
+                            
+                            {(currentMarket.partialDecripts?.length || 0) === 0 && (
+                              <p className="text-amber-600 text-sm mt-2 text-center">
+                                At least one decryption share is required to finalize the market.
+                              </p>
+                            )}
+                          </div>
+                        </>
+                      ) : (
+                        <div className="text-center p-4 border rounded-md bg-muted/20">
+                          <p>Decryption shares can only be submitted after the market has expired.</p>
+                          <p className="text-sm text-muted-foreground mt-2">
+                            The market will expire on {formatDate(currentMarket.expiration)}.
+                          </p>
+                        </div>
+                      )}
+                    </TabsContent>
+                  </Tabs>
                 </CardContent>
               </Card>
             )}
             
-            {!isKeyRegistrationOpen && !isMarketExpired && (
+            {/* Voting Section */}
+            {!isKeyRegistrationOpen && !isMarketExpired && !currentMarket.isFinalized && (
               <Card>
                 <CardHeader>
                   <CardTitle>Submit Vote</CardTitle>
@@ -380,68 +487,33 @@ export default function MarketSummaryPage() {
                   
                   <Button
                     onClick={handleSendVote}
-                    disabled={isLoading || !isConnected}
+                    disabled={isLoading || !isConnected || !hasKeys}
                     className="w-full"
                   >
                     {isLoading ? 'Sending...' : 'Send Encrypted Vote'}
                   </Button>
+                  
+                  {!hasKeys && (
+                    <p className="text-red-500 text-sm text-center">
+                      No keys registered. Voting is not possible.
+                    </p>
+                  )}
                 </CardContent>
               </Card>
             )}
             
-            {isMarketExpired && !currentMarket.isFinalized && (
+            {/* Results display if finalized */}
+            {currentMarket.isFinalized && (
               <Card>
                 <CardHeader>
-                  <CardTitle>Finalize Market</CardTitle>
+                  <CardTitle>Market Results</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <Button
-                    onClick={handleUseCommonDecryptShare}
-                    disabled={isLoading || !isConnected}
-                    className="w-full"
-                    variant="secondary"
-                  >
-                    Use Common Decryption Key
-                  </Button>
-                  
-                  <div className="relative">
-                    <div className="absolute inset-0 flex items-center">
-                      <span className="w-full border-t" />
-                    </div>
-                    <div className="relative flex justify-center text-xs uppercase">
-                      <span className="bg-background px-2 text-muted-foreground">Or</span>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="customDecryptShare">Custom Decryption Share:</Label>
-                    <Input
-                      id="customDecryptShare"
-                      placeholder="Enter your decryption share"
-                      value={customDecryptShare}
-                      onChange={(e) => setCustomDecryptShare(e.target.value)}
-                    />
-                  </div>
-                  
-                  <Button
-                    onClick={handleAddCustomDecryptShare}
-                    disabled={isLoading || !isConnected || !customDecryptShare}
-                  >
-                    Add Custom Decrypt Share
-                  </Button><div className="pt-4">
-                    <Button
-                      onClick={handleDecryptVotes}
-                      disabled={isLoading || !isConnected || (currentMarket.partialDecripts?.length || 0) === 0}
-                      className="w-full"
-                    >
-                      Finalize Market Results
-                    </Button>
-                    
-                    {(currentMarket.partialDecripts?.length || 0) === 0 && (
-                      <p className="text-amber-600 text-sm mt-2">
-                        At least one decryption share is required to finalize the market.
-                      </p>
-                    )}
+                <CardContent className="text-center">
+                  <div className={`p-6 rounded-lg ${currentMarket.winner ? 'bg-green-100' : 'bg-red-100'}`}>
+                    <h3 className="text-2xl font-bold mb-2">
+                      Winner: {currentMarket.winner ? "YES" : "NO"}
+                    </h3>
+                    <p className="text-gray-700">The market has been finalized and the results are available.</p>
                   </div>
                 </CardContent>
               </Card>

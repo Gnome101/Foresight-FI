@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Web3 BoilerPlate",
+  title: "Foresight-FI",
   description: "Web3 Boilerplate for SST v3",
 };
 
