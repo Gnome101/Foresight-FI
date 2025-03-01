@@ -1,4 +1,4 @@
-export const hook_address = "0x456ad05e7aa5e6967e441c86661ffbe9c968c888";
+export const hook_address = "0x2920a5106c1a30a85b9aea6a4fe84476ffb8c888";
 export const hook_abi = [
   {
     type: "constructor",

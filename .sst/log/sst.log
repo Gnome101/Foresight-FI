@@ -1311,3 +1311,60 @@ time=2025-03-01T05:58:28.817-07:00 level=INFO msg="file event" service=watcher p
 time=2025-03-01T05:58:28.817-07:00 level=INFO msg="waiting for trigger" service=deployer
 time=2025-03-01T05:58:28.817-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
 time=2025-03-01T05:58:28.817-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:59:10.277-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:59:36.197-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=CREATE
+time=2025-03-01T05:59:36.198-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:59:36.198-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts
+time=2025-03-01T05:59:42.068-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T05:59:42.068-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:59:42.068-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts
+time=2025-03-01T05:59:45.628-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T05:59:45.628-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T05:59:45.628-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:59:45.628-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts
+time=2025-03-01T05:59:55.897-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T05:59:55.898-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:59:55.898-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T05:59:55.898-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts
+time=2025-03-01T05:59:57.087-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T05:59:57.087-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:59:57.087-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts
+time=2025-03-01T05:59:57.087-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T05:59:59.342-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T05:59:59.343-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts
+time=2025-03-01T05:59:59.343-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:59:59.343-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T06:00:00.128-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T06:00:00.128-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:00:00.129-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts
+time=2025-03-01T06:00:00.129-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T06:00:05.016-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T06:00:05.016-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:00:05.016-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts
+time=2025-03-01T06:00:05.016-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T06:00:10.278-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:00:15.557-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T06:00:15.557-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:00:15.557-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts
+time=2025-03-01T06:00:15.558-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/swap_test.ts op=WRITE
+time=2025-03-01T06:01:10.277-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:02:10.279-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:03:10.278-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:03:42.323-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T06:03:42.323-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:03:42.323-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts
+time=2025-03-01T06:03:42.323-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/hook_abi.ts op=WRITE
+time=2025-03-01T06:03:55.463-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts op=WRITE
+time=2025-03-01T06:03:55.463-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:03:55.463-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts
+time=2025-03-01T06:03:55.463-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/dynamic_mint.ts op=WRITE
+time=2025-03-01T06:04:10.283-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T06:04:13.344-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts op=WRITE
+time=2025-03-01T06:04:13.344-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:04:13.344-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts
+time=2025-03-01T06:04:13.344-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts op=WRITE
+time=2025-03-01T06:04:17.174-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts op=WRITE
+time=2025-03-01T06:04:17.174-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T06:04:17.174-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts op=WRITE
+time=2025-03-01T06:04:17.174-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/abi/mock_erc.ts
+time=2025-03-01T06:05:10.278-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"

@@ -1,4 +1,4 @@
-export const mint_address = "0x39caea288013b3b8b141db23cba39b8674036295";
+export const mint_address = "0xcf43370631661e4ed6afaa106605808296220b31";
 export const mint_abi = [
   {
     type: "constructor",
