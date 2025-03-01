@@ -1,4 +1,4 @@
-export const mint_address = "0x5B4f51ce66763F76C0aCe10628BC3df3b861908c";
+export const mint_address = "0x39caea288013b3b8b141db23cba39b8674036295";
 export const mint_abi = [
   {
     type: "constructor",
@@ -16,9 +16,8 @@ export const mint_abi = [
   },
   {
     type: "function",
-    name: "depositAndMint",
+    name: "createMarket",
     inputs: [
-      { name: "usdcAmount", type: "uint256", internalType: "uint256" },
       {
         name: "key",
         type: "tuple",
@@ -37,41 +36,22 @@ export const mint_abi = [
   },
   {
     type: "function",
+    name: "depositAndMint",
+    inputs: [{ name: "usdcAmount", type: "uint256", internalType: "uint256" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
     name: "getNOPrice",
-    inputs: [
-      {
-        name: "key",
-        type: "tuple",
-        internalType: "struct PoolKey",
-        components: [
-          { name: "currency0", type: "address", internalType: "Currency" },
-          { name: "currency1", type: "address", internalType: "Currency" },
-          { name: "fee", type: "uint24", internalType: "uint24" },
-          { name: "tickSpacing", type: "int24", internalType: "int24" },
-          { name: "hooks", type: "address", internalType: "contract IHooks" },
-        ],
-      },
-    ],
+    inputs: [],
     outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
     stateMutability: "view",
   },
   {
     type: "function",
     name: "getYESPrice",
-    inputs: [
-      {
-        name: "key",
-        type: "tuple",
-        internalType: "struct PoolKey",
-        components: [
-          { name: "currency0", type: "address", internalType: "Currency" },
-          { name: "currency1", type: "address", internalType: "Currency" },
-          { name: "fee", type: "uint24", internalType: "uint24" },
-          { name: "tickSpacing", type: "int24", internalType: "int24" },
-          { name: "hooks", type: "address", internalType: "contract IHooks" },
-        ],
-      },
-    ],
+    inputs: [],
     outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
     stateMutability: "view",
   },
@@ -80,6 +60,19 @@ export const mint_abi = [
     name: "hook",
     inputs: [],
     outputs: [{ name: "", type: "address", internalType: "contract Hook" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "poolKey",
+    inputs: [],
+    outputs: [
+      { name: "currency0", type: "address", internalType: "Currency" },
+      { name: "currency1", type: "address", internalType: "Currency" },
+      { name: "fee", type: "uint24", internalType: "uint24" },
+      { name: "tickSpacing", type: "int24", internalType: "int24" },
+      { name: "hooks", type: "address", internalType: "contract IHooks" },
+    ],
     stateMutability: "view",
   },
   {
@@ -93,6 +86,13 @@ export const mint_abi = [
     type: "function",
     name: "redeemTokenY",
     inputs: [{ name: "amount", type: "uint256", internalType: "uint256" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "startMarket",
+    inputs: [],
     outputs: [],
     stateMutability: "nonpayable",
   },

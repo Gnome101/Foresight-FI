@@ -14,22 +14,23 @@ import { useEncryption } from '@/hooks/useEncryption';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 // Common private key for testing
-const COMMON_PRIVATE_KEY = "17198111189740987207522258066070924659068354664866153349209472785674371270060091762895376871405096450964189332505989014717404517835761512453664757667426820217481440982146617209935641204979498323812441179740390809704275764217718676871508299641960392693502986024702569368107809778413850853826168369425962712173790018017361397615845706791905366069526727215230586745271719003886933530843871633556938220645881606394868643579850622075915590012962791258951480013534977101779599471939324439360030244729834387834027239088977696746477158659363343219175191100820364097049332480659184824130271435766049092620682590274475536856966";
-
+  const COMMON_PRIVATE_KEY = 
+    "17198111189740987207522258066070924659068354664866153349209472785674371270060091762895376871405096450964189332505989014717404517835761512453664757667426820217481440982146617209935641204979498323812441179740390809704275764217718676871508299641960392693502986024702569368107809778413850853826168369425962712173790018017361397615845706791905366069526727215230586745271719003886933530843871633556938220645881606394868643579850622075915590012962791258951480013534977101779599471939324439360030244729834387834027239088977696746477158659363343219175191100820364097049332480659184824130271435766049092620682590274475536856966"
+  ;
 export default function MarketSummaryPage() {
   const { isConnected } = useAppKitAccount();
   const { 
     currentMarket, 
     submitKey, 
-    useCommonPublicKey,
-    chooseWinner, 
+    addCommonPublicKey,
+    // chooseWinner, 
     refetchMarket, 
     isLoading: marketLoading 
   } = useMarketCreation();
   
   const { 
     sendEncryptedVote, 
-    submitDecryptionShare, 
+    submitDecryptionShare, decryptVotes,
     isLoading: encryptionLoading 
   } = useEncryption();
   
@@ -84,7 +85,7 @@ export default function MarketSummaryPage() {
     }
     
     toast.promise(
-      useCommonPublicKey(),
+      addCommonPublicKey(),
       {
         loading: 'Adding common key...',
         success: 'Common key submission transaction sent!',
@@ -106,7 +107,7 @@ export default function MarketSummaryPage() {
     }
     
     toast.promise(
-      sendEncryptedVote(vote, currentMarket.publicKeys),
+      sendEncryptedVote(vote, [...currentMarket.publicKeys]),
       {
         loading: 'Encrypting and sending vote...',
         success: 'Vote submitted!',
@@ -159,10 +160,9 @@ export default function MarketSummaryPage() {
     }
     
     // Default to YES winner for simplicity - you would implement actual logic here
-    const isYesWinner = true;
     
     toast.promise(
-      chooseWinner(isYesWinner),
+      decryptVotes(),
       {
         loading: 'Finalizing market...',
         success: 'Market finalization transaction sent!',
@@ -235,11 +235,11 @@ export default function MarketSummaryPage() {
                 <div>
                   <Label className="font-semibold">Status:</Label>
                   <p className="mt-1">
-                    {currentMarket.isFinalized
+                    {true /*currentMarket.isFinalized
                       ? `Finalized (Winner: ${currentMarket.winner ? 'YES' : 'NO'})`
                       : isMarketExpired
                         ? 'Expired (Awaiting finalization)'
-                        : 'Active'}
+                        : 'Active'*/}
                   </p>
                 </div>
                 
@@ -300,10 +300,10 @@ export default function MarketSummaryPage() {
                       <Label className="font-semibold">Vote Ciphertexts:</Label>
                       <div className="mt-1 p-2 bg-white rounded border text-xs">
                         <p className="font-mono break-all">
-                          c1: {currentMarket.c1 ? `${currentMarket.c1.substring(0, 32)}...` : "None"}
+                          c1: {currentMarket.c1 ? `${currentMarket.c1.toString().substring(0, 32)}...` : "None"}
                         </p>
                         <p className="font-mono break-all">
-                          c2: {currentMarket.c2 ? `${currentMarket.c2.substring(0, 32)}...` : "None"}
+                          c2: {currentMarket.c2 ? `${currentMarket.c2.toString().substring(0, 32)}...` : "None"}
                         </p>
                       </div>
                     </div>
@@ -313,7 +313,7 @@ export default function MarketSummaryPage() {
             </Card>
             
             {/* Tabs for Key Registration and Decryption Shares */}
-            {!currentMarket.isFinalized && (
+            {/*!currentMarket.isFinalized &&*/ (
               <Card>
                 <CardHeader>
                   <CardTitle>Market Management</CardTitle>
@@ -387,7 +387,7 @@ export default function MarketSummaryPage() {
                     
                     {/* Decryption Shares Tab */}
                     <TabsContent value="decrypt" className="space-y-4">
-                      {isMarketExpired ? (
+                      {/*isMarketExpired */ true ? (
                         <>
                           <CardDescription>
                             Submit a decryption share to help finalize the market.
@@ -461,7 +461,7 @@ export default function MarketSummaryPage() {
             )}
             
             {/* Voting Section */}
-            {!isKeyRegistrationOpen && !isMarketExpired && !currentMarket.isFinalized && (
+            {/*!isKeyRegistrationOpen && !isMarketExpired && !currentMarket.isFinalized &&*/ (
               <Card>
                 <CardHeader>
                   <CardTitle>Submit Vote</CardTitle>
@@ -511,7 +511,7 @@ export default function MarketSummaryPage() {
                 <CardContent className="text-center">
                   <div className={`p-6 rounded-lg ${currentMarket.winner ? 'bg-green-100' : 'bg-red-100'}`}>
                     <h3 className="text-2xl font-bold mb-2">
-                      Winner: {currentMarket.winner ? "YES" : "NO"}
+                      Winner: {currentMarket.winner ? "YES" :"NO" }
                     </h3>
                     <p className="text-gray-700">The market has been finalized and the results are available.</p>
                   </div>

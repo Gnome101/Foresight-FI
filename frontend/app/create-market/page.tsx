@@ -16,7 +16,6 @@ export default function CreateMarketPage() {
     createMarket, 
     currentMarket, 
     isLoading, 
-    isSuccess, 
     refetchMarket 
   } = useMarketCreation();
   
@@ -45,8 +44,8 @@ export default function CreateMarketPage() {
     }
     
     // Convert days to seconds
-    const registrationDelay = parseInt(registrationDays) * 24 * 60 * 60;
-    const marketLength = parseInt(marketDays) * 24 * 60 * 60;
+    const registrationDelay = parseInt((parseFloat(registrationDays) * 24 * 60 * 60).toString());
+    const marketLength = parseInt((parseFloat(marketDays) * 24 * 60 * 60).toString());
     
     toast.promise(
       new Promise((resolve, reject) => {
@@ -96,12 +95,12 @@ export default function CreateMarketPage() {
               
               <div>
                 <Label className="font-semibold">Key Registration Ends:</Label>
-                <p className="mt-1">{formatDate(currentMarket.keyRegistrationExpiration)}</p>
+                <p className="mt-1">{formatDate(Number(currentMarket.keyRegistrationExpiration))}</p>
               </div>
               
               <div>
                 <Label className="font-semibold">Market Expires:</Label>
-                <p className="mt-1">{formatDate(currentMarket.expiration)}</p>
+                <p className="mt-1">{formatDate(Number(currentMarket.expiration))}</p>
               </div>
               
               <div>
