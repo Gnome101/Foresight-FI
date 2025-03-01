@@ -1127,3 +1127,187 @@ time=2025-03-01T05:44:52.995-07:00 level=INFO msg="waiting for trigger" service=
 time=2025-03-01T05:44:52.995-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
 time=2025-03-01T05:44:52.995-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
 time=2025-03-01T05:45:10.279-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:46:10.275-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:47:10.275-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:48:10.275-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:48:37.205-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:48:37.206-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:48:37.206-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:48:37.206-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:48:43.613-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:48:43.613-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:48:43.613-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:48:43.614-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:48:56.770-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:48:56.770-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:48:56.770-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:48:56.770-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:48:58.480-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:48:58.480-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:48:58.480-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:48:58.480-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:49:10.275-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:49:27.302-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:49:27.302-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:49:27.302-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T05:49:27.303-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:49:40.771-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:49:40.771-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:49:40.771-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:49:40.771-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:49:53.136-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:49:53.136-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:49:53.136-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:49:53.136-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T05:50:10.275-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:50:18.601-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:50:18.601-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:50:18.601-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T05:50:18.601-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:50:23.837-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:50:23.837-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:50:23.837-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T05:50:23.837-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:50:33.612-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:50:33.612-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:50:33.612-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:50:33.613-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T05:50:38.112-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:50:38.113-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:50:38.113-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:50:38.113-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:50:41.303-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:50:41.304-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:50:41.304-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:50:41.304-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:50:43.579-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:50:43.579-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:50:43.579-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:50:43.579-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:50:47.700-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:50:47.700-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:50:47.700-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T05:50:47.700-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:51:02.651-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:51:02.655-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:51:02.655-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:51:02.655-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:51:03.442-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:51:03.442-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:51:03.443-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:51:03.443-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:51:10.279-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:51:11.137-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:51:11.137-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:51:11.137-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:51:11.137-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T05:51:13.480-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:51:13.480-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:51:13.480-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T05:51:13.480-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:51:16.051-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:51:16.051-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:51:16.051-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T05:51:16.051-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:51:21.419-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:51:21.422-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:51:21.424-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:51:21.424-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T05:51:26.909-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:51:26.925-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:51:26.927-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:51:26.927-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:51:30.169-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:51:30.169-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:51:30.169-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:51:30.169-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:51:31.456-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:51:31.456-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:51:31.456-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:51:31.456-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:51:41.357-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:51:41.357-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:51:41.357-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T05:51:41.357-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:51:48.297-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:51:48.297-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:51:48.297-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:51:48.297-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:52:10.280-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:52:40.520-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:52:40.520-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:52:40.520-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx
+time=2025-03-01T05:52:40.520-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/app/prediction-market/page.tsx op=WRITE
+time=2025-03-01T05:52:56.287-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:52:56.287-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:52:56.287-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:52:56.287-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:53:01.477-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:53:01.478-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:53:01.478-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:53:01.479-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:53:10.276-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:53:21.808-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:53:21.808-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:53:21.808-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:53:21.808-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:53:24.246-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:53:24.246-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:53:24.246-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:53:24.246-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:53:27.553-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:53:27.553-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:53:27.553-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:53:27.553-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:53:31.002-07:00 level=INFO msg="matching dev" service=dev full=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend directory=""
+time=2025-03-01T05:53:31.003-07:00 level=INFO msg="loading aws credentials" service=project.env resource=Frontend role=arn:aws:iam::767397930251:role/sst-web3-boilerplate-thegnome-FrontendDevServerRole-wsdouaho
+time=2025-03-01T05:53:31.265-07:00 level=ERROR msg="failed to load aws credentials" service=project.env resource=Frontend err=<nil>
+time=2025-03-01T05:53:31.265-07:00 level=INFO msg=dev service=project.env resource=Frontend links=[REOWN_PROJECT_ID]
+time=2025-03-01T05:54:12.443-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:55:13.201-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:56:11.387-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:56:49.493-07:00 level=INFO msg=resize
+time=2025-03-01T05:56:55.214-07:00 level=INFO msg=resize
+time=2025-03-01T05:56:55.220-07:00 level=INFO msg=resize
+time=2025-03-01T05:57:02.994-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:02.997-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:02.998-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:57:02.998-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:57:05.756-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:05.756-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:05.757-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:57:05.757-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:57:10.279-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:57:34.325-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:34.325-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:57:34.325-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:57:34.325-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:37.921-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:37.922-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:37.922-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:57:37.922-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:57:41.775-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:41.776-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:57:41.776-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:57:41.776-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:44.135-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:44.135-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:57:44.135-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:57:44.135-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:48.135-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:48.135-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:57:48.135-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:57:48.135-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:56.045-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:56.045-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:57:56.045-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:57:56.045-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:58:04.730-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:58:04.730-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:58:04.730-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx
+time=2025-03-01T05:58:04.731-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:58:10.277-07:00 level=INFO msg="INFO msg service=appsync.connection type=ka id=<nil>"
+time=2025-03-01T05:58:28.817-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:58:28.817-07:00 level=INFO msg="waiting for trigger" service=deployer
+time=2025-03-01T05:58:28.817-07:00 level=INFO msg="file event" service=watcher path=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx op=WRITE
+time=2025-03-01T05:58:28.817-07:00 level=INFO msg="checking if code needs to be rebuilt" service=aws.function file=/home/thegnome/cryptoTIme/sst-web3-boilerplate/frontend/components/spline-eyeball.tsx

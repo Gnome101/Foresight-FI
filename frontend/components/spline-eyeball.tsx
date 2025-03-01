@@ -8,7 +8,6 @@ export default function SplineEyeball() {
     // Load the Spline viewer script
     const script = document.createElement('script');
     script.type = 'module';
-    script.src = 'https://unpkg.com/@splinetool/viewer/build/spline-viewer.js';
     document.head.appendChild(script);
 
     return () => {

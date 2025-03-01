@@ -104,10 +104,10 @@ export default function PredictionMarketPage() {
       <div className="max-w-4xl w-full space-y-6 relative">
         {/* Mystical decorative elements */}
              
-
+ <SplineEyeball />
         <div className="absolute -top-10 -left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl z-0"></div>
         <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl z-0"></div>
-           <SplineEyeball />
+          
         {/* Eyeball above the heading */}
         
         <h1 className="text-3xl font-bold text-center text-primary relative z-10">
