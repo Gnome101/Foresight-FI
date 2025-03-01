@@ -15,22 +15,56 @@ export default function CreateMarketPage() {
   const { 
     createMarket, 
     currentMarket, 
-    isLoading, 
+    isLoading,
+    needsApproval,
+    approveUSDC,
+    checkApprovalNeeded,
     refetchMarket 
   } = useMarketCreation();
   
   const [description, setDescription] = useState('');
   const [registrationDays, setRegistrationDays] = useState('3');
   const [marketDays, setMarketDays] = useState('30');
+  const [initialUSDC, setInitialUSDC] = useState('1000');
+  const [startPrice, setStartPrice] = useState('0.5');
 
   // Refresh market data when component mounts
+   useEffect(() => {
+    // Initial fetch
+    refetchMarket();
+    
+    // Refresh data every 10 seconds
+    const intervalId = setInterval(() => {
+      refetchMarket();
+    }, 10000);
+    
+    // Clean up interval on unmount
+    return () => clearInterval(intervalId);
+  }, [refetchMarket]);
+  
   useEffect(() => {
     refetchMarket();
   }, [refetchMarket]);
+  
+  // Update approval check when amounts change
+  useEffect(() => {
+    if (isConnected) {
+      checkApprovalNeeded(initialUSDC);
+    }
+  }, [initialUSDC, isConnected, checkApprovalNeeded]);
 
   // Check if there's already an active market
   const hasExistingMarket = currentMarket && !currentMarket.isFinalized && 
-    currentMarket.expiration > Date.now();
+    currentMarket.expiration > BigInt(Math.floor(Date.now() / 1000));
+    
+  const handleApprove = () => {
+    if (!isConnected) {
+      toast.error("Please connect your wallet first");
+      return;
+    }
+    
+    approveUSDC();
+  };
 
   const handleCreateMarket = () => {
     if (!isConnected) {
@@ -43,6 +77,19 @@ export default function CreateMarketPage() {
       return;
     }
     
+    // Validate price is between 0 and 1
+    const priceNum = parseFloat(startPrice);
+    if (isNaN(priceNum) || priceNum <= 0 || priceNum >= 1) {
+      toast.error("Starting price must be between 0 and 1");
+      return;
+    }
+    
+    // If approval is needed, show message
+    if (needsApproval) {
+      toast.info("Please approve USDC first");
+      return;
+    }
+    
     // Convert days to seconds
     const registrationDelay = parseInt((parseFloat(registrationDays) * 24 * 60 * 60).toString());
     const marketLength = parseInt((parseFloat(marketDays) * 24 * 60 * 60).toString());
@@ -50,7 +97,7 @@ export default function CreateMarketPage() {
     toast.promise(
       new Promise((resolve, reject) => {
         try {
-          createMarket(description, registrationDelay, marketLength);
+          createMarket(description, registrationDelay, marketLength, initialUSDC, startPrice);
           
           // Set a timeout to allow the transaction to be processed
           // and then refetch the market data
@@ -71,8 +118,8 @@ export default function CreateMarketPage() {
   };
 
   // Format date for display
-  const formatDate = (timestamp: number) => {
-    return new Date(timestamp).toLocaleString();
+  const formatDate = (timestamp: bigint) => {
+    return new Date(Number(timestamp) * 1000).toLocaleString();
   };
 
   return (
@@ -82,7 +129,7 @@ export default function CreateMarketPage() {
           {hasExistingMarket ? 'Current Market' : 'Create New Market'}
         </h1>
         
-        {hasExistingMarket ? (
+        {/*hasExistingMarket*/false ? (
           <Card>
             <CardHeader>
               <CardTitle>Existing Market</CardTitle>
@@ -95,12 +142,12 @@ export default function CreateMarketPage() {
               
               <div>
                 <Label className="font-semibold">Key Registration Ends:</Label>
-                <p className="mt-1">{formatDate(Number(currentMarket.keyRegistrationExpiration))}</p>
+                <p className="mt-1">{formatDate(currentMarket.keyRegistrationExpiration)}</p>
               </div>
               
               <div>
                 <Label className="font-semibold">Market Expires:</Label>
-                <p className="mt-1">{formatDate(Number(currentMarket.expiration))}</p>
+                <p className="mt-1">{formatDate(currentMarket.expiration)}</p>
               </div>
               
               <div>
@@ -170,14 +217,57 @@ export default function CreateMarketPage() {
                   This is how long the market will be active after the key registration period.
                 </p>
               </div>
-
-              <Button
-                onClick={handleCreateMarket}
-                disabled={isLoading || !isConnected}
-                className="w-full mt-4"
-              >
-                {isLoading ? 'Creating...' : 'Create Market'}
-              </Button>
+              
+              <div className="space-y-2">
+                <Label htmlFor="initialUSDC">Initial USDC Liquidity:</Label>
+                <Input
+                  id="initialUSDC"
+                  type="number"
+                  placeholder="1000"
+                  value={initialUSDC}
+                  onChange={(e) => {
+                    setInitialUSDC(e.target.value);
+                    checkApprovalNeeded(e.target.value);
+                  }}
+                />
+                <p className="text-xs text-gray-500">
+                  Amount of USDC to seed the market with (from your wallet).
+                </p>
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="startPrice">Starting Price Ratio (0-1):</Label>
+                <Input
+                  id="startPrice"
+                  type="number"
+                  step="0.01"
+                  min="0.01"
+                  max="0.99"
+                  placeholder="0.5"
+                  value={startPrice}
+                  onChange={(e) => setStartPrice(e.target.value)}
+                />
+                <p className="text-xs text-gray-500">
+                  Initial probability of YES (0.5 = 50% chance, balanced pool).
+                </p>
+              </div>
+              {needsApproval ? (
+                <Button
+                  onClick={handleApprove}
+                  disabled={isLoading || !isConnected}
+                  className="w-full mt-4 bg-amber-500 hover:bg-amber-600"
+                >
+                  {isLoading ? 'Approving...' : 'Approve USDC'}
+                </Button>
+              ) : (
+                <Button
+                  onClick={handleCreateMarket}
+                  disabled={isLoading || !isConnected}
+                  className="w-full mt-4"
+                >
+                  {isLoading ? 'Creating...' : 'Create Market'}
+                </Button>
+              )}
             </CardContent>
           </Card>
         )}

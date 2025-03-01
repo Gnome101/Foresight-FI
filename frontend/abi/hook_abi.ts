@@ -1,4 +1,4 @@
-export const hook_address = "0x71dfc4bde9500d953d57162b2d11398b31eb4888";
+export const hook_address = "0xa25a00a7ffa44b6d2b10a9da0c4d9e5e883b0888";
 export const hook_abi = [
   {
     type: "constructor",
@@ -8,6 +8,7 @@ export const hook_abi = [
         type: "address",
         internalType: "contract IPoolManager",
       },
+      { name: "erc20", type: "address", internalType: "contract MockERC20" },
     ],
     stateMutability: "nonpayable",
   },
@@ -18,9 +19,20 @@ export const hook_abi = [
       { name: "marketDescription", type: "string", internalType: "string" },
       { name: "registrationDelay", type: "uint256", internalType: "uint256" },
       { name: "marketLength", type: "uint256", internalType: "uint256" },
+      { name: "initialUSDC", type: "uint256", internalType: "uint256" },
+      { name: "startPrice", type: "uint256", internalType: "uint256" },
     ],
     outputs: [],
     stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "USDC",
+    inputs: [],
+    outputs: [
+      { name: "", type: "address", internalType: "contract MockERC20" },
+    ],
+    stateMutability: "view",
   },
   {
     type: "function",
@@ -368,6 +380,19 @@ export const hook_abi = [
   },
   {
     type: "function",
+    name: "dynamicMarket",
+    inputs: [],
+    outputs: [
+      {
+        name: "",
+        type: "address",
+        internalType: "contract DynamicPoolBasedMinter",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
     name: "getDecryptionShares",
     inputs: [],
     outputs: [{ name: "", type: "string[]", internalType: "string[]" }],
@@ -576,6 +601,19 @@ export const hook_abi = [
   },
   {
     type: "function",
+    name: "setMinter",
+    inputs: [
+      {
+        name: "minter",
+        type: "address",
+        internalType: "contract DynamicPoolBasedMinter",
+      },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
     name: "submitKey",
     inputs: [{ name: "publicKey", type: "string", internalType: "string" }],
     outputs: [],
@@ -613,6 +651,31 @@ export const hook_abi = [
     ],
     outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
     stateMutability: "view",
+  },
+  {
+    type: "event",
+    name: "MarketMade",
+    inputs: [
+      {
+        name: "maker",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "timestamp",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+      {
+        name: "startPrice",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
   },
   { type: "error", name: "HookNotCalledByPoolManager", inputs: [] },
   { type: "error", name: "HookNotImplemented", inputs: [] },

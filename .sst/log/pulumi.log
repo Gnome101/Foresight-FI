@@ -1,5 +1,5 @@
 Updating (thegnome):
-@ updating.....
+@ updating....
 
 @ updating.....
     pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running OutputImpl {
@@ -12,7 +12,20 @@ Updating (thegnome):
     pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running   toString: [Function (anonymous)],
     pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running   toJSON: [Function (anonymous)]
     pulumi:pulumi:Stack sst-web3-boilerplate-thegnome running }
-@ updating......
+@ updating.....
+ -  aws:s3:BucketPolicy FrontendAssetsPolicy deleting (0s) 
+@ updating....
+ -  aws:s3:BucketPolicy FrontendAssetsPolicy deleted (0.33s) 
+ -  aws:s3:BucketCorsConfigurationV2 FrontendAssetsCors deleting (0s) 
+ -  aws:s3:BucketPublicAccessBlock FrontendAssetsPublicAccessBlock deleting (0s) 
+ -  aws:s3:BucketCorsConfigurationV2 FrontendAssetsCors deleted (0.15s) 
+@ updating....
+ -  aws:s3:BucketPublicAccessBlock FrontendAssetsPublicAccessBlock deleted (0.81s) 
+ -  pulumi-nodejs:dynamic:Resource FrontendS3AccessControl.sst.aws.OriginAccessControl deleting (0s) 
+ -  aws:s3:BucketV2 FrontendAssetsBucket deleting (0s) 
+ -  aws:s3:BucketV2 FrontendAssetsBucket deleted (0.24s) 
+ -  pulumi-nodejs:dynamic:Resource FrontendS3AccessControl.sst.aws.OriginAccessControl deleted (0.45s) 
+ -  sst:aws:Bucket FrontendAssets deleting (0s) 
     pulumi:pulumi:Stack sst-web3-boilerplate-thegnome  10 messages
 Diagnostics:
   pulumi:pulumi:Stack (sst-web3-boilerplate-thegnome):
@@ -31,7 +44,8 @@ Outputs:
     _protect: false
 
 Resources:
+    - 6 deleted
     11 unchanged
 
-Duration: 5s
+Duration: 7s
 

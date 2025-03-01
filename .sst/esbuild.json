@@ -1,5 +1,5 @@
 
-  .sst/platform/sst.config.1740825490960.mjs ────────────────────────────────────── 649.3kb ─ 100.0%
+  .sst/platform/sst.config.1740869298677.mjs ────────────────────────────────────── 649.3kb ─ 100.0%
    ├ .sst/platform/src/components/aws/function.ts ────────────────────────────────── 29.0kb ─── 4.5%
    │  └ .sst/platform/src/components/aws/index.ts
    │     └ .sst/platform/src/components/index.ts
@@ -562,6 +562,8 @@
    │              └ .sst/platform/src/components/index.ts
    │                 └ sst.config.ts
    │                    └ eval.ts
+   ├ <define:$cli> ────────────────────────────────────────────────────────────────── 444b ──── 0.1%
+   │  └ eval.ts
    ├ .sst/platform/src/components/aws/linkable.ts ─────────────────────────────────── 433b ──── 0.1%
    │  └ .sst/platform/src/components/aws/index.ts
    │     └ .sst/platform/src/components/index.ts
@@ -573,8 +575,6 @@
    │        └ .sst/platform/src/components/index.ts
    │           └ sst.config.ts
    │              └ eval.ts
-   ├ <define:$cli> ────────────────────────────────────────────────────────────────── 425b ──── 0.1%
-   │  └ eval.ts
    ├ .sst/platform/src/components/aws/iam-edit.ts ─────────────────────────────────── 394b ──── 0.1%
    │  └ .sst/platform/src/components/aws/index.ts
    │     └ .sst/platform/src/components/index.ts
