@@ -1,3 +1,4 @@
+// frontend/components/navbar.tsx
 'use client'
 
 import { useAppKit, useAppKitAccount, useDisconnect } from '@reown/appkit/react'
@@ -46,16 +47,18 @@ export function Navbar() {
   }
 
   return (
-    <nav className="flex justify-between items-center p-4 border-b">
+    <nav className="flex justify-between items-center p-4 border-b border-border/50 bg-card/80 backdrop-blur-sm sticky top-0 z-40">
       <div className="flex items-center space-x-6">
-        <h1 className="text-xl font-bold">Web3 Boilerplate</h1>
+        <h1 className="text-xl font-bold">
+          <span className="text-primary">Foresight-Fi</span>
+        </h1>
         
         {/* Navigation Links */}
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 ml-6">
           <Link 
             href="/create-market" 
             className={`transition-colors hover:text-primary ${
-              pathname === '/create-market' ? 'text-primary font-medium' : 'text-muted-foreground'
+              pathname === '/create-market' ? 'text-primary font-medium border-b-2 border-primary pb-1' : 'text-muted-foreground'
             }`}
           >
             Create Market
@@ -63,7 +66,7 @@ export function Navbar() {
           <Link 
             href="/market-summary" 
             className={`transition-colors hover:text-primary ${
-              pathname === '/market-summary' ? 'text-primary font-medium' : 'text-muted-foreground'
+              pathname === '/market-summary' ? 'text-primary font-medium border-b-2 border-primary pb-1' : 'text-muted-foreground'
             }`}
           >
             Market Summary
@@ -71,7 +74,7 @@ export function Navbar() {
           <Link 
             href="/prediction-market" 
             className={`transition-colors hover:text-primary ${
-              pathname === '/prediction-market' ? 'text-primary font-medium' : 'text-muted-foreground'
+              pathname === '/prediction-market' ? 'text-primary font-medium border-b-2 border-primary pb-1' : 'text-muted-foreground'
             }`}
           >
             Prediction Market
@@ -84,7 +87,7 @@ export function Navbar() {
           <div className="relative">
             <Button 
               variant="outline"
-              className="transition-colors hover:bg-red-500 hover:text-white hover:border-red-500"
+              className="transition-colors hover:bg-primary hover:text-primary-foreground border-primary/50"
               onClick={handleDisconnectClick}
             >
               {formatAddress(address || '')}
@@ -92,8 +95,8 @@ export function Navbar() {
             
             {/* Disconnect confirmation modal */}
             {showDisconnectModal && (
-              <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-                <div className="bg-background p-6 rounded-lg shadow-lg max-w-md w-full">
+              <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+                <div className="bg-card p-6 rounded-lg shadow-lg shadow-primary/20 max-w-md w-full border border-border">
                   <h2 className="text-xl font-bold mb-4">Disconnect Wallet</h2>
                   <p className="mb-6">Are you sure you want to disconnect your wallet?</p>
                   <div className="flex justify-end gap-2">
@@ -109,7 +112,12 @@ export function Navbar() {
             )}
           </div>
         ) : (
-          <Button onClick={handleConnect}>Connect Wallet</Button>
+          <Button 
+            onClick={handleConnect}
+            className="bg-primary text-primary-foreground hover:bg-primary/90"
+          >
+            Connect Wallet
+          </Button>
         )}
       </div>
     </nav>
